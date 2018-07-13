@@ -1,34 +1,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
         <div id="loggedIn">
             <p id="userName"></p>
-            <button id="logout" onclick="logoutWithFirebase()" value="LOGOUT">salir</button>
+            <button type="button"id="logout" value="logout" value="LOGOUT">salir</button>
         </div>
         <div id="loggedOut">
+            <label for="email">email</label>
             <input type="email" placeholder="email" id="email">
+            <label for="password">password</label>
             <input type="password" placeholder="password" id="password">
-            <button id="registerButton" value="REGISTER" onclick="registerWithFirebase()">registrar</button>
-            <button id="loginButton" value="LOGIN" onclick="loginWithFirebase()">entrar</button>
+            <button id="registerButton" value="REGISTER" >registrar</button>
+            <button id="loginButton" value="LOGIN" >entrar</button>
+            <button id="buttongoogle" value="google" >google</button>
+            <button id="buttonfacebook">facebook</button>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script>
-        var config = {
-            apiKey: "AIzaSyD33a72Urx8vLxoSDdJu0woInLXFQ3yq3M",
-            authDomain: "socialnetwork-165d4.firebaseapp.com",
-            databaseURL: "https://socialnetwork-165d4.firebaseio.com",
-            projectId: "socialnetwork-165d4",
-            storageBucket: "socialnetwork-165d4.appspot.com",
-            messagingSenderId: "544234037594"
-        };
-        firebase.initializeApp(config);
-    </script>
+   
     <script src='config.js'></script>
 </body>
+
+<script src='config.js'></script>
 </html>
