@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div>
+        <div id="loggedIn">
+            <p id="userName"></p>
+            <button id="logout" onclick="logoutWithFirebase()" value="LOGOUT">salir</button>
+        </div>
+        <div id="loggedOut">
+            <input type="email" placeholder="email" id="email">
+            <input type="password" placeholder="password" id="password">
+            <button id="registerButton" value="REGISTER" onclick="registerWithFirebase()">registrar</button>
+            <button id="loginButton" value="LOGIN" onclick="loginWithFirebase()">entrar</button>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+   
+    <script src='config.js'></script>
 </body>
 <script src='config.js'></script>
 </html>
