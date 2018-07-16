@@ -1,6 +1,7 @@
 .body-inicio{
     background-color: rgba(189, 199, 54, 0.979)
 }
+/* 
 .content-cabecera{
     position: relative;
     display: inline-block;
@@ -22,11 +23,8 @@
     height: 180%;
     border-radius:50%;
     
-}
+}*/
 .title-inicio{
     font-family: 'Pacifico', cursive;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    
-}
+   
+} 
