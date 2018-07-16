@@ -1,0 +1,30 @@
+.body-inicio{
+    background-color: rgba(189, 199, 54, 0.979)
+}
+/* 
+.content-cabecera{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 150px;
+    left: 100px;
+}
+.content-logo{
+    width: 100%;
+    height: 100px;
+}
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content-logo img{
+    height: 180%;
+    border-radius:50%;
+    
+}*/
+.title-inicio{
+    font-family: 'Pacifico', cursive;
+   
+} 
