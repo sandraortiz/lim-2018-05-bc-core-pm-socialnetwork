@@ -1,30 +1,114 @@
-.body-inicio{
-    background-color: rgba(189, 199, 54, 0.979)
+html *{
+    margin:0px;
+    padding:0px;
 }
-/* 
-.content-cabecera{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    top: 150px;
-    left: 100px;
+
+/*INDEX.HTML*/
+
+.body-index{
+    position:absolute;
+    font-family: 'Oswald', sans-serif;
 }
-.content-logo{
-    width: 100%;
-    height: 100px;
-}
-.centrado{
+
+/*.centrado{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.content-logo img{
-    height: 180%;
-    border-radius:50%;
-    
 }*/
+
 .title-inicio{
     font-family: 'Pacifico', cursive;
-   
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color:#A6D729;
 } 
+
+#loggedOut {
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    text-align: center;
+    top: 200px;
+    margin-left: 18%;
+    margin-right: 12.5%;
+
+}
+
+.background-photo1{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+.buttonFacebook, .buttonGoogle {
+    
+    display: inline-block;
+    border:none;
+    outline: none;
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+    background-color:blue;
+    border-radius:200px;
+    
+}
+
+.buttonGoogle {
+    background-color:red; 
+}
+
+.userEmail, .userPassword , .buttonLogin, .registerPage {
+border:0px;
+width:250px;
+height:40px;
+border-radius:200px;
+font-family: 'Oswald', sans-serif
+
+}
+
+.buttonLogin {
+    background-color: #A6D729;
+    cursor:pointer;
+    font-family: 'Oswald', sans-serif
+
+} 
+.registerPage {
+background-color: white;
+cursor:pointer;
+font-family: 'Oswald', sans-serif
+}
+
+.text-1, .text-2 {
+    color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 400px) {
+
+    .body-index{
+    background-color: red;
+    }
+}
