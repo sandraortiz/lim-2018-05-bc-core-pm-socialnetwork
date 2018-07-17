@@ -38,3 +38,18 @@ buttonfacebook.addEventListener('click' ,() => {
     });
    } )
   
+   const buttonGoogle=document.querySelector(".buttongoogle");
+   buttonGoogle.addEventListener('click' , () => {
+       var provider = new firebase.auth.GoogleAuthProvider();
+       firebase.auth().signInWithPopup(provider).then(function (result) {
+           console.log("inicio sesion");
+       })
+       .catch(function (error) {
+           console.log(error.code);
+           console.log(error.message);
+           console.log(error.email);
+           console.log(error.credential);
+   
+       })
+   })
+   

@@ -1,27 +1,36 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
+    <title>Document</title>
 </head>
+
 <body>
-    <div id="login" class="hiden">
-        <p id="username"></p>
-        <button class="btnLogout">cerrar sesion</button>
+    <img class="background-photo1" src="https://crisescobar.files.wordpress.com/2018/07/backlit-bright-dawn-697243.jpg">
+    <div class="body-index">
+        <h1 class="title-inicio"> Eco-Friends </h1>
+        <div id="loggedOut">
+            <p><input type="email" placeholder=" Ingresa tu e-mail " class="userEmail"></p>
+            <br>
+            <p><input type="password" placeholder="Ingresa tu contraseña" class="userPassword"></p>
+            <br>
+            <p><button class="buttonLogin">INICIAR SESIÓN</button></p>
+            <p class="text-1">o <br> iniciar sesión con:</p>
+            <p><button class="buttonFacebook">f</button>
+            <button class="buttonGoogle">G+</button></p>
+            <br>
+            <P class="text-2">¿No tienes una cuenta?</P>
+            <p> <button class="registerPage" >REGISTRATE</button></p>
+        </div>  
     </div>
-    <div class="logout">
-     <input type="email" placeholder=" Ingresa tu e-mail " class="userEmail">
-     <input type="password" placeholder="Ingresa tu contraseña" class="userPassword">
-     <button class="buttonLogin">INICIAR SESIÓN</button>
-     <button class="buttonRegister"> registrate</button>
-     <p> o iniciar sesión con:</p>
-    
-    </div>
-     <button class="buttonFacebook">f</button>
-    <button class="buttonGoogle">G+</button>
+
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src='config.js'></script>
-  <script src="prueba.js"></script>
+    <script src="login.js"></script>
 </body>
+
 </html>
