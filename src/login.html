@@ -2,11 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <div id="login" class="hiden">
+        <p id="username"></p>
+        <button class="btnLogout">cerrar sesion</button>
+    </div>
+    <div class="logout">
+     <input type="email" placeholder=" Ingresa tu e-mail " class="userEmail">
+     <input type="password" placeholder="Ingresa tu contraseña" class="userPassword">
+     <button class="buttonLogin">INICIAR SESIÓN</button>
+     <button class="buttonRegister"> registrate</button>
+     <p> o iniciar sesión con:</p>
     
+    </div>
+     <button class="buttonFacebook">f</button>
+    <button class="buttonGoogle">G+</button>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src='config.js'></script>
+  <script src="prueba.js"></script>
 </body>
-<script src='config.js'></script>
 </html>
