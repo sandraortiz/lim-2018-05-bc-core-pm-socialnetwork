@@ -57,7 +57,9 @@ html *{
         font-family: 'Oswald', sans-serif
     
     } 
-
+#mensaje-error{
+    color: red;
+}
 /* .register{
     position: relative;
     font-family: 'Oswald', sans-serif;

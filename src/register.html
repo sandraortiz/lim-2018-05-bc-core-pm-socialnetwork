@@ -13,22 +13,23 @@
       <h3 >Ingrese sus datos</h3>
       <br>
     <!-- <div class="register"> -->
-    
-     <input type="nombre" class="name" placeholder="ingrese su nombre">
+     <h6 id="name-error"></h6>    
+     <input type="nombre" class="name" placeholder="ingrese su nombre" >
     <br><br>
-    <input type="apellido" class="apellido" placeholder="ingrese su apellido">
+    <h6 id="lastname-error"></h6> 
+    <input type="apellido" class="apellido" placeholder="ingrese su apellido" required>
     <br><br>
-    <input type="email" placeholder="ingrese su email" class="userEmail">
+    <input type="email" placeholder="ingrese su email" class="userEmail" required>
     <br><br>
-    <input type="password" placeholder="ingrese su contraseña" class="userPassword">
-    <br><br>
-    <input type="password" placeholder="ingrese su contraseña" class="userPasswordVerification">
+    <h6 id="mensaje-error"></h6> 
+    <input type="password" placeholder="ingrese su contraseña" class="userPassword" required>
+     <br><br> 
+    <input type="password" placeholder="ingrese su contraseña" class="userPasswordVerification" required>
     <br><br>
     <button class="buttonRegister" >registrarse</button>
     <br><br>
     <button class="buttonFacebook">f</button>
     <button class="buttonGoogle">G+</button>
-<!-- </div> -->
  </div>    
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
