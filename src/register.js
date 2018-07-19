@@ -11,6 +11,20 @@ const errorName = document.getElementById("name-error");
 const errorLastname = document.getElementById("lastname-error");
 
 
+buttonGoogle.addEventListener('click' , () => {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+        console.log("inicio sesion");
+        window.location="inicioecofrie.html";
+    })
+    .catch(function (error) {
+        console.log(error.code);
+        console.log(error.message);
+        console.log(error.email);
+        console.log(error.credential);
+
+    })
+})
 buttonRegister.addEventListener('click', () => {
 
   const userEmailvalue = userEmail.value;
@@ -56,17 +70,4 @@ buttonfacebook.addEventListener('click', () => {
     });
 })
 
-buttonGoogle.addEventListener('click ', () => {
-  var provider = new firebase.auth.GoogleAuthProvider();
 
-  firebase.auth().signInWithPopup(provider)
-    .then(function (result) {
-      console.log('sesion google')
-    })
-    .catch(function (error) {
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
-    });
-})

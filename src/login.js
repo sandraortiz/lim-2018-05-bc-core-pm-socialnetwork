@@ -3,8 +3,25 @@ const userPassword = document.querySelector(".userPassword");
 const buttonLogin = document.querySelector(".buttonLogin");
 const buttonRegisterPage = document.querySelector(".registerPage");
 const buttonfacebook = document.querySelector(".buttonFacebook");
+const buttonGoogle = document.querySelector(".buttonGoogle");
  buttonRegisterPage.addEventListener('click',()=>{
     location.href="../src/register.html"
+})
+
+
+buttonGoogle.addEventListener('click' , () => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function (result) {
+      console.log("inicio sesion");
+      window.location="inicioecofrie.html";
+  })
+  .catch(function (error) {
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
+
+  })
 })
 
   //LOGIN
