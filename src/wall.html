@@ -1,28 +1,31 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ECO-FRIENDS</title>
-    <link rel="stylesheet" href="wall.css">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-</head>
-<body >
-   
-    <div class="body-inicio" >
-  
-      <h1 class="title-inicio">Bienvenido <br> a <br> EcoFriends</h1>  
 
-    <div class="content">
-      <textarea  id="" ></textarea>  
-    
-      <p id="userName"></p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ECO-FRIENDS</title>
+  <link rel="stylesheet" href="wall.css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div class="body-inicio">
+    <p id="userName"></p>
+    <div id="bd" class="hiden">
+      <textarea name="publicacion" id="post" cols="30" rows="10"></textarea>
+      <button id="btnSave" value="Publicar">Publicar</button>
     </div>
-<button class="buttonLogout">salir</button>
+    <div id="posts" class="hiden">
+    <h3>Post</h3>
+    </div>
+    <button class="buttonLogout">salir</button>
   </div>
-      
+
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src='config.js'></script>
-<script src="wall.js"></script>
+  <script src="wall.js"></script>
 </body>
+
 </html>
