@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Skranji');
+
+html *{
+    margin:0px;
+    padding:0px;
+}
+
+/*INDEX.HTML*/
+
+.body-index{
+    position: absolute;
+    font-family: 'Oswald', sans-serif;
+    margin-block-end: center;
+}
+
+/*.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}*/
+
+.title-inicio{
+    font-family: 'Pacifico', cursive;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    top: 75px;
+    margin-left: 27%;
+    color:#A6D729;
+} 
+
+#loggedOut {
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    text-align: center;
+    top: 140px;
+    margin-left: 18%;
+   
+    
+
+}
+
+.background-photo1{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+.buttonFacebook, .buttonGoogle {
+    font-family: 'Skranji', cursive;
+    font-size: 20px;
+    display: inline-block;
+    border:none;
+    outline: none;
+    vertical-align: middle;
+    height: 40px;
+    width: 40px;
+    color:white;
+    cursor: pointer;
+    text-decoration: none;
+    background-color:#3b5999;
+    border-radius:200px;
+    
+}
+
+.buttonGoogle {
+    background-color:#dd4b39; 
+}
+
+.userEmail, .userPassword , .buttonLogin, .registerPage {
+border:0px;
+width:240px;
+height:30px;
+border-radius:200px;
+padding-left:20px;
+font-family: 'Oswald', sans-serif
+
+}
+
+.buttonLogin {
+    background-color: #A6D729;
+    cursor:pointer;
+    font-family: 'Oswald', sans-serif
+
+} 
+.registerPage {
+background-color: white;
+cursor:pointer;
+font-family: 'Oswald', sans-serif
+}
+
+.text-1, .text-2 {
+    color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
