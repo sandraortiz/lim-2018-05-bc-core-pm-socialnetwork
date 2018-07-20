@@ -13,7 +13,7 @@ const userEmail = document.querySelector(".userEmail");
 const userPassword= document.querySelector(".userPassword");
 const userPasswordVerification = document.querySelector(".userPasswordVerification");
 const buttonRegister = document.querySelector(".buttonRegister");
-
+const errormessage =document.getElementById("errorMessage");
 // login 
 const userEmailLogin = document.querySelector(".userEmailLogin");
 const userPasswordLogin= document.querySelector(".userPasswordLogin");
@@ -27,7 +27,7 @@ buttonLogin.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
     console.log('inicio sesion');
-    window.location='index.html'
+    window.location='wall.html'
         })
         .catch((error) => {
             console.log("error de firebase > Codigo > " + error.code);
@@ -43,7 +43,7 @@ buttonfacebookLogin.addEventListener('click' ,() => {
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
       console.log('sesion facebook')
-      window.location='index.html'
+      window.location='wall.html'
    
       
     }).catch(function(error) {
@@ -58,7 +58,7 @@ buttonfacebookLogin.addEventListener('click' ,() => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
         console.log("inicio sesion");
-        window.location='index.html'
+        window.location='wall.html'
     })
     .catch(function (error) {
         console.log(error.code);
@@ -74,14 +74,41 @@ buttonRegister.addEventListener('click',()=>{
     const userPasswordvalue =userPassword.value ;
     const userPasswordVerificationvalue = userPasswordVerification.value;
     if(userPasswordvalue==userPasswordVerificationvalue){
-        firebase.auth().createUserWithEmailAndPassword(userEmailvalue, userPasswordvalue)
+     firebase.auth().createUserWithEmailAndPassword(userEmailvalue, userPasswordvalue)
         .then(() => {
           console.log("usuario creado");
-          window.location='index.html'
+          window.location='wall.html'
         })
         .catch((error) => {
           console.log("error de firebase > Codigo > " + error.code);
           console.log("error de firebase > Mensaje >" + error.message)
         });
     }
+  
 } )
+
+// buttonRegister.addEventListener('click', () => {
+
+//     const userEmailvalue = userEmail.value;
+//     const userPasswordvalue = userPassword.value;
+//     const userPasswordVerificationvalue = userPasswordVerification.value;
+//     // // console.log(userNameValue)
+//     // const userLastnameValue = userLastname.value; 
+//     if (userPasswordvalue.length >= 6) {
+//       if (userPasswordvalue == userPasswordVerificationvalue) {
+//         firebase.auth().createUserWithEmailAndPassword(userEmailvalue, userPasswordvalue)
+//           .then(() => {
+//             console.log("usuario creado");
+//             window.location = 'inicio.html';
+//           })
+//           .catch((error) => {
+//             console.log("error de firebase > Codigo > " + error.code);
+//             console.log("error de firebase > Mensaje >" + error.message)
+//           });
+//       }
+//     }
+//     else {
+//      
+//     }
+//   })
+  
