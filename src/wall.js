@@ -68,7 +68,7 @@ btnSave.addEventListener('click' , () => {
     const userId = firebase.auth().currentUser.uid;
     const newPost = writeNewPost(userId , post.value);
     var btnUpdate = document.createElement('input');
-    btnUpdate.setAttribute('value' , 'Update');
+    btnUpdate.setAttribute('value' , 'Editar');
     btnUpdate.setAttribute('type' , 'button');
     var btnDelete = document.createElement('input');
     btnDelete.setAttribute('value' , 'delete' ) ;
