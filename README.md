@@ -2,7 +2,7 @@
 Inicio del proyecto: La busqueda de una tematica para esta red social partio de la pregunta. ¿Qué es lo que busca la gente de la redes sociales?
 y la respuesta más rápida fue ESTAR EN CONTACTO CON MIS AMIGOS, yendo más alla...los seres humanos siempre hemos sentido la necesidad de ser parte de una comunidad ... es natural. Las comunidades en estos tiempos no necesitan de un espacio fisico, la tecnologia ha avanzado tanto que se ha roto esta barrera. Facebook, por ejemplo se ha vuelto casi indispensable para el mundo, somos parte de una comunidad con diversidad de culturas, estratos economicos, lenguas y religiones. Con este contexto partimos a la siguiente pregunta ...¿Qué deseamos de esa comunidad? 
 Creemos que es el intercambio, el intercambio de conocimientos, pensamientos, ideas, diversión y toda aquella emoción que conlleva hablar de aquello que nos gusta, apasiona o nos molesta.
-Las redes sociales engloban todo est
+Las redes sociales engloban todo 
 
 
 
