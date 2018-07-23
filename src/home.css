@@ -26,8 +26,8 @@
 }
 .userName ,  .userPasswordLogin, .buttonLogin, .userLastName , .userEmailLogin, .userEmail, .userPassword, .buttonRegisterForm, .userName,.userLastName, .userPassword, .userPasswordVerification,.buttonRegister {
     border:0px;
-    width:240px;
-    height:30px;
+    width:60%;
+    height:20%px;
     border-radius:200px;
     font-family: 'Oswald', sans-serif;
     background-color:rgb(250, 255, 161);

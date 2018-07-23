@@ -13,7 +13,7 @@ window.onload = () => {
             console.log('esta logueado')
 
             userName.innerHTML =`${user.displayName}`;
-            userImage.innerHTML=` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
+            userImage.innerHTML=` <img src="${user.photoURL}" alt="user" class="profile-photo"/>`;
             writeUserData(user.uid , user.displayName, user.email, user.photoURL);
      
             bd.classList.remove("hiden");
