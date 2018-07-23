@@ -28,7 +28,7 @@ buttonLogin.addEventListener('click', () => {
     firebase.auth().signInWithEmailAndPassword(emailValue, passwordValue)
         .then(() => {
             console.log('inicio sesion');
-            window.location = 'index.html'
+            window.location = 'wall.html'
         })
         .catch((error) => {
             console.log("error de firebase > Codigo > " + error.code);
@@ -44,7 +44,7 @@ buttonfacebookLogin.addEventListener('click', () => {
     firebase.auth().signInWithPopup(provider)
         .then(function (result) {
             console.log('sesion facebook')
-            window.location = 'index.html'
+            window.location = 'wall.html'
 
 
         }).catch(function (error) {
@@ -59,7 +59,7 @@ buttongoogleLogin.addEventListener('click', () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
         console.log("inicio sesion");
-        window.location = 'index.html'
+        window.location = 'wall.html'
     })
         .catch(function (error) {
             console.log(error.code);
@@ -79,7 +79,7 @@ buttonRegister.addEventListener('click', () => {
             firebase.auth().createUserWithEmailAndPassword(userEmailvalue, userPasswordvalue)
                 .then(() => {
                     console.log("usuario creado");
-                     window.location='index.html'
+                     window.location='wall.html'
                 })
                 .catch((error) => {
                     console.log("error de firebase > Codigo > " + error.code);

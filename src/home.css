@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Skranji');
 
-/*Home html*/
+/* Home html */
+
 
 
 .register{
@@ -46,11 +47,16 @@
     }
 
 #col-2 {
-margin-top: 70px;
+margin-top: 70px ;
 margin-bottom:70px;
+<<<<<<< HEAD
 
+=======
+margin-right:0px;
+>>>>>>> 8aaa135ed1e9a96c554cfa6c4696bc8b20c21113
 background-color:white;
 }
+
 
 
 .title-inicio{
@@ -101,8 +107,12 @@ background-color:white;
 } 
 #footer {
     text-align:center;
+<<<<<<< HEAD
 }
 
 
 
 
+=======
+}
+>>>>>>> 8aaa135ed1e9a96c554cfa6c4696bc8b20c21113
