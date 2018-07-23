@@ -18,13 +18,19 @@ window.onload = () => {
      
             bd.classList.remove("hiden");
            posts.classList.remove("hiden");
-  
-        } else { //Si NO está logeado, mostraremos la opción loggedOut
-            console.log('no esta logueado');
-            posts.classList.add('hiden');
-            bd.classList.add('hiden');
+           
+   if (user.displayName == null   ){
+    userName.innerHTML = `${user.email}`;
+    userImage.innerHTML = ``;
+     }
+        } 
+      
+        // else { //Si NO está logeado, mostraremos la opción loggedOut
+        //     console.log('no esta logueado');
+        //     posts.classList.add('hiden');
+        //     bd.classList.add('hiden');
             
-        }
+        // }
         console.log("User > " + JSON.stringify(user));
     });
 };
@@ -65,7 +71,8 @@ firebase.database().ref().update(updates);
 return newPostKey;
 };
 btnSave.addEventListener('click' , () => {
-    const userId = firebase.auth().currentUser.uid;
+    if (post.value === ''){
+const userId = firebase.auth().currentUser.uid;
     const newPost = writeNewPost(userId , post.value);
     var btnUpdate = document.createElement('input');
     btnUpdate.setAttribute('value' , 'Editar');
@@ -102,6 +109,8 @@ contPost.appendChild(textPost);
 contPost.appendChild(btnUpdate);
 contPost.appendChild(btnDelete);
 posts.appendChild(contPost);
+    }
+    
 })
 
 function reload_page(){
