@@ -23,7 +23,7 @@ Las redes sociales engloban todo
 Nuestros principales usuarios son jovenes desde los 15 años en adelante, ya que consideramos que desde esta edad aproximadamente los jovenes comienzan a tener más consiencia de su salud, alimentacion y de su entorno. Además de que es una edad en la que ya son más responsables de
 
 ## Cómo descubriste las necesidades de los usuarios.
-Realizamos una encuesta a usuarios de distintas edades, y nos percatamos la necesidad del publico de obtener información sobre alimentacion, salud, tecnologia y cuidado del medio ambiente.Estos ambitos eran repetitivos y casi
+Realizamos una encuesta a usuarios de distintas edades, y nos percatamos la necesidad del publico de obtener información sobre alimentacion, salud, tecnologia y cuidado del medio ambiente.Estos ambitos eran repetitivos 
 
 ## Qué problema resuelve el producto para estos usuarios.
 Eco-Friends engloba las necesidades de los usuarios en cuanto a salud, alimentacion, tecnologia innovadora responsable con el medio ambiente
