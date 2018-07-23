@@ -107,7 +107,7 @@ const userId = firebase.auth().currentUser.uid;
 } );
 contPost.appendChild(textPost);
 contPost.appendChild(btnUpdate);
-contPost.appendChild(btnDelete);
+contPost.appendChild(btnDelete);s
 posts.appendChild(contPost);
     }
     
