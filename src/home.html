@@ -24,28 +24,24 @@
     <!-- <img class="background-principal" src="https://crisescobar.files.wordpress.com/2018/07/backlit-bright-dawn-697243-e1532199732981.jpg" style="width:100%">  -->
 <div class="w3-row">
     <!-- columna 1 -->
-  <div class="w3-col w3-container m8">
-    <p class="text-slogan">La red social para aquellos que aman a la naturaleza.</p>
+  <div id="col-1" class="w3-col w3-container m8">
+    <p class="text-slogan">La red social para aquellos que aman la naturaleza.</p>
   </div>
 <!-- columna 2 -->
 
-  <div id="col-2"class="w3-col w3-container m4  w3-white">  
+  <div id="col-2"class="w3-col w3-container m4 ">  
         <div class="register">
                 <div class="body-index">
-                     <h3 >Ingrese sus datos</h3>
-                <input type="nombre" class="userName" placeholder="ingrese su nombre">
-                <br><br>
-                <input type="apellido" class="userLastName" placeholder="ingrese su apellido">
-                <br><br>
-                <input type="email" placeholder="ingrese su email" class="userEmail">
-                <br><br>
-                <h6 id="mensajeErrorPassword"></h6>
-                <input type="password" placeholder="ingrese su contraseña" class="userPassword">
-                <h6 id="mensaje-error"></h6> 
-                <input type="password" placeholder="ingrese su contraseña" class="userPasswordVerification">
-                <br><br>
-                <button class="buttonRegister" >registrarse</button>
-                <br><br>
+                     <h1 class="title-inicio" >Registrate</h1>
+                <p><input type="nombre" class="userName" placeholder=" Nombre"></p>
+                <p> <input type="apellido" class="userLastName" placeholder=" Apellido"></p>   
+                <p><input type="email" placeholder=" Ingresa tu e-mail" class="userEmail"></p>   
+                <p><h6 id="mensajeErrorPassword"></h6></p>
+                <p><input type="password" placeholder=" Ingresa una contraseña" class="userPassword"></p>
+                <p><h6 id="mensaje-error"></h6> </p>
+                <p><input type="password" placeholder=" Repita la contraseña" class="userPasswordVerification"></p>
+                <p><button class="buttonRegister" >REGISTRARSE</button></p>
+                <p class="text-1">o <br> Registrate con:</p>
                 </div>
             </div>
            <div class="login">
@@ -53,18 +49,20 @@
                     <h1 class="title-inicio"> Inicia Sesión </h1>
                     <div id="loggedOut">
                         <p><input type="email" placeholder=" Ingresa tu e-mail " class="userEmailLogin"></p>
-                        <p><input type="password" placeholder="Ingresa tu contraseña" class="userPasswordLogin"></p>
+                        <p><input type="password" placeholder=" Ingresa tu contraseña" class="userPasswordLogin"></p>
                         <p><button class="buttonLogin">INICIAR SESIÓN</button></p>
-                        <p class="text-1">o <br> iniciar sesión con:</p>
                         <P class="text-2">¿No tienes una cuenta?</P>
                         <p> <button class="buttonRegisterForm" >REGISTRATE</button></p>
+                        <p class="text-1">o <br> Inicia sesión con:</p>
         
                     </div>  
                  </div>
             </div>
             <div class="socialLogin">
-                 <button class="buttonFacebookLogin">f</button>
+                <button class="buttonFacebookLogin">f</button>
                 <button class="buttonGoogleLogin">G+</button>
+                <br>
+                <p></p>
             </div>
   </div>
 </div>
@@ -77,4 +75,4 @@
 <script src='config.js'></script>
 <script src="home.js"></script>  
 </body>
-</html> 
+</html>
