@@ -1,73 +1,76 @@
 @import url('https://fonts.googleapis.com/css?family=Skranji');
 
-/*Home html*/
+/* Home html */
+
 
 .register{
     display: none;
-    
-}
-html *{
-    margin:0px;
-    padding:0px;
 }
 
 
-.background-photo1{
-    width:100%;
-    height:100%;
-    position:absolute;
+.w3-row {
+    background-image: url("https://crisescobar.files.wordpress.com/2018/07/art-close-up-ecology-886521-e1532204661628.jpg");
+    background-repeat:no-repeat; 
+    margin-left:-15px;
+    margin-right: -15px;  
 }
 
-.userName , .userLastName , .userPasswordVerification , .userEmail, .userPassword , .buttonRegister {
+.title-nav {
+    font-family: 'Pacifico', cursive;
+
+}
+
+.text-slogan {
+    font-size: 50px;
+    font-family: 'Oswald', sans-serif
+}
+.userName ,  .userPasswordLogin, .buttonLogin, .userLastName , .userEmailLogin, .userEmail, .userPassword, .buttonRegisterForm, .userName,.userLastName, .userPassword, .userPasswordVerification,.buttonRegister {
     border:0px;
     width:240px;
     height:30px;
     border-radius:200px;
-    padding-left:25px;
-    font-family: 'Oswald', sans-serif
-    
-    }
+    font-family: 'Oswald', sans-serif;
+    background-color:rgb(250, 255, 161);
+}
 
-    .buttonRegister{
+.buttonRegister{
         background-color: #A6D729;
         cursor:pointer;
         font-family: 'Oswald', sans-serif
-    
     } 
 
+    .buttonRegisterForm {
+        cursor:pointer;
+        background-color: rgb(90, 89, 89);
+        color:white;
+    }
 
-.body-index  {
-    position: absolute;
-    font-family: 'Oswald', sans-serif;
-    margin-block-end: center;
+#col-2 {
+margin-top: 70px ;
+margin-bottom:70px;
+margin-right:0px;
+background-color:white;
 }
+
+
 
 .title-inicio{
     font-family: 'Pacifico', cursive;
-    position: relative;
-    display: inline-block;
     text-align: center;
-    top: 75px;
-    margin-left: 27%;
     color:#A6D729;
 } 
 
 #loggedOut ,  .socialLogin{
-    position: relative;
     font-family: 'Oswald', sans-serif;
-    display: inline-block;
     text-align: center;
-    top: 140px;
-    margin-left: 18%;
-   
-    
-
 }
 
-.background-photo1{
-    width:100%;
-    height:100%;
-    position:absolute;
+.body-index {
+    text-align: center;
+}
+
+.userEmailLogin, .userPasswordLogin {
+    background-color:rgb(250, 255, 161);
 }
 
 .buttonFacebookLogin, .buttonGoogleLogin {
@@ -97,14 +100,6 @@ html *{
     font-family: 'Oswald', sans-serif
 
 } 
-.registerPage {
-background-color: white;
-cursor:pointer;
-font-family: 'Oswald', sans-serif
+#footer {
+    text-align:center;
 }
-
-.text-1, .text-2 {
-    color:white;
-}
-
-
