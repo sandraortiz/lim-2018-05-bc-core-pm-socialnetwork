@@ -12,4 +12,10 @@
     margin-block-end: center;
 }
 
-
+.profile-photo {
+    width: 12%;
+    border-radius: 250%;
+}
+textarea {
+    resize: none;
+}
