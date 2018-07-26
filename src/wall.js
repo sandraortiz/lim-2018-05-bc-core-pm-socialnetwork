@@ -5,8 +5,8 @@ buttonLogout.addEventListener('click', () => {
     })
         .catch(function (error) { });
 })
- const users = document.getElementById('postsuser');
-//  const users = document.getElementById('userpost');
+const users = document.getElementById('postsuser');
+const userspost = document.getElementById('myuserpost');
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) { //Si está logeado, mostraremos la opción loggedIn
@@ -18,17 +18,26 @@ window.onload = () => {
                 userName.innerHTML = `${user.email}`
                 // userImage.innerHTML = ` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
             }
-            let userId = firebase.auth().currentUser.uid;
-            const dbRefObject= firebase.database().ref().child('user-posts').child(userId);
-            // const dbRefObject = firebase.database().ref().child('/posts/');
-            // const dbRefObject = dbRefObject.child('pos')
-             dbRefObject.on('child_added',snap =>
-               {
-                 users.innerText =JSON.stringify(snap.val());
-               }
-               );
-   
-        
+            // const newPost = writeNewPost(user.uid , post.value);
+
+            // let userId = firebase.auth().currentUser.uid;
+            database=firebase.database();
+            var ref = database.ref('posts');
+           ref.on('value',gotData);
+
+            // const dbRefObject = firebase.database().ref('posts');
+
+            // dbRefObject.on('value', snap => {
+            //     users.innerText = JSON.stringify(snap.val());
+            // }
+            // );
+
+            // const dbRef = firebase.database().ref().child('user-posts').child(user.uid);
+
+            // dbRef.on('value', snap => {
+            //     userspost.innerText = JSON.stringify(snap.val());
+            // }
+            // );
         }
         else {
             console.log('no esta logueado');
@@ -36,8 +45,21 @@ window.onload = () => {
         console.log("User > " + JSON.stringify(user));
     });
 };
-
-
+function gotData(data){
+    // console.log(data.val());
+    var posts = data.val();
+    var keys = Object.keys(posts);
+    console.log(keys);
+    for (var i  = 0; i <keys.length; i++) {
+      var k = keys[i];
+     var body =posts[k].body;
+     var uid = posts[k].uid;
+// console.log(body);
+// scorelist.innerHTML = body ;
+var li = document.createElement('li' , body);
+li.parent('scorelist');
+    }
+}
 
 function writeUserData(userId, name, email, imageUrl) {
     firebase.database().ref('users/' + userId).set({
@@ -55,14 +77,14 @@ function writeNewPost(uid, body) {
         uid: uid,
         body: body
     };
-     var newPostKey = firebase.database().ref().child('posts').push().key;
+    var newPostKey = firebase.database().ref().child('posts').push().key;
     var updates = {};
     updates['/posts/' + newPostKey] = postData;
     updates['/user-posts/' + uid + '/' + newPostKey] = postData;
     firebase.database().ref().update(updates);
-    
+
     return newPostKey;
-    
+
 };
 btnSave.addEventListener('click', () => {
     const userId = firebase.auth().currentUser.uid;
@@ -87,6 +109,9 @@ btnSave.addEventListener('click', () => {
         var textPost = document.createElement('textarea');
         textPost.setAttribute('id', newPost);
         textPost.innerHTML = post.value;
+        //  const arrdbRef= Object.keys(firebase.database().ref().child('posts').child(newPost));
+        // console.log(arrdbRef);
+        // con 
         btnDelete.addEventListener('click', (evt) => {
             if (newPost === evt.target.id) {
                 const question = confirm('Esta seguro que desea eliminar esta publicacion?')
