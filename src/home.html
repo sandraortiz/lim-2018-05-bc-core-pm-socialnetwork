@@ -9,30 +9,27 @@
 <!-- link  CSS nuestro -->
 <link rel="stylesheet" type="text/css" media="screen" href="home.css" />
 <!-- link  CSS fuentes -->
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600,700" rel="stylesheet">
-</head>
-
-<body>
-<!-- menu -->
-<div class="w3-container w3-lime">
-  <h1 class="title-nav">Eco - friends</h1>
-</div>
-
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"><body>
 <!-- BODY -->
 <div class="w3-container">  
-    <!-- <img class="background-principal" src="https://crisescobar.files.wordpress.com/2018/07/backlit-bright-dawn-697243-e1532199732981.jpg" style="width:100%">  -->
 <div class="w3-row">
     <!-- columna 1 -->
   <div id="col-1" class="w3-col w3-container m8">
-    <p class="text-slogan">La red social para aquellos que aman la naturaleza.</p>
+    <br>
+      <p class="title-nav">Eco Friends <img class ="logo" src="https://crisescobar.files.wordpress.com/2018/07/el-cir-culo.png"></p>
+        <p class="text-slogan">La red social para aquellos que quieren un mundo mejor.</p>
   </div>
 <!-- columna 2 -->
-
-  <div id="col-2"class="w3-col w3-container m4 ">  
+  <div id="col-2"class="w3-col w3-container m4">  
+      <div id="col-2-background" >
+          <div class="w3-container">
         <div class="register">
                 <div class="body-index">
-                     <h1 class="title-inicio" >Registrate</h1>
+                  <br>
+                     <h1 class="title-form" >Registrate</h1>
                 <p><input type="nombre" class="userName" placeholder=" Nombre"></p>
                 <p> <input type="apellido" class="userLastName" placeholder=" Apellido"></p>   
                 <p><input type="email" placeholder=" Ingresa tu e-mail" class="userEmail"></p>   
@@ -43,14 +40,18 @@
                 <p><button class="buttonRegister" >REGISTRARSE</button></p>
                 <p class="text-1">o <br> Registrate con:</p>
                 </div>
-            </div>
+           </div>
+           </div>
            <div class="login">
                 <div class="body-index">
-                    <h1 class="title-inicio"> Inicia Sesión </h1>
+                  <br>
+                  <br>
+                    <h1 class="title-form"> Inicia Sesión </h1>
                     <div id="loggedOut">
                         <p><input type="email" placeholder=" Ingresa tu e-mail " class="userEmailLogin"></p>
                         <p><input type="password" placeholder=" Ingresa tu contraseña" class="userPasswordLogin"></p>
                         <p><button class="buttonLogin">INICIAR SESIÓN</button></p>
+                        <br>
                         <P class="text-2">¿No tienes una cuenta?</P>
                         <p> <button class="buttonRegisterForm" >REGISTRATE</button></p>
                         <p class="text-1">o <br> Inicia sesión con:</p>
@@ -59,20 +60,20 @@
                  </div>
             </div>
             <div class="socialLogin">
-                <button class="buttonFacebookLogin">f</button>
-                <button class="buttonGoogleLogin">G+</button>
+                <button class="buttonFacebookLogin"> f </button>
+                <button class="buttonGoogleLogin"> G </button>
+                </div>
                 <br>
-                <p></p>
+                <br>
+                <br>
             </div>
   </div>
 </div>
 </div>
-
 <div id="footer" class="w3-container w3-black">
-  <p> ™ Created by Cristina Esobar, Sandra Ortiz, Lizeth Sucasaca. ® Eco-Friendly.</p>
+  <p> ™ Created by Cristina Esobar, Sandra Ortiz, Lizeth Sucasaca. ® Eco Friends.</p>
 </div>
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src='config.js'></script>
 <script src="home.js"></script>  
 </body>
