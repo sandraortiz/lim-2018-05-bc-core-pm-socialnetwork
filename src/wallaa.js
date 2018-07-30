@@ -5,28 +5,21 @@ const post = document.getElementById('post');
 const posts = document.getElementById('posts');
 const users = document.getElementById('postsuser');
 const userspost = document.getElementById('myuserpost');
-const mypost = document.getElementById('')
-window.onload = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            console.log('esta logueado')
-            userName.innerHTML = `${user.displayName}`;
-            userImage.innerHTML = ` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
-            writeUserData(user.uid, user.displayName, user.email, user.photoURL);
-            if (userName.innerHTML == 'null') {
-                userName.innerHTML = `${user.email}`
-            }
-
-
-        }
-
-        else {
-            console.log('no esta logueado');
-        }
-        console.log("User > " + JSON.stringify(user));
-    });
-};
-
+// const mypost = document.getElementById('')
+database = firebase.database();
+var ref = database.ref('posts');
+ref.on('value'  , gotData );
+function gotData(data){
+    // console.log(data.val());
+    var scores = data.val();
+    var keys = Object.keys(scores);
+    for (let index = 0; index < keys.length; index++) {
+        var k = keys[index];
+        var author= scores[k].author;
+        var body=scores[k].body;
+        console.log(author , body);
+    }
+}
 
 function writeUserData(userId, name, email, imageUrl) {
     firebase.database().ref('users/' + userId).set({
@@ -37,8 +30,7 @@ function writeUserData(userId, name, email, imageUrl) {
 }
 
 function writeNewPost(uid, username, body) {
-
- var postData = {
+   var postData = {
         author: username,
         uid: uid,
         body: body,
@@ -124,6 +116,7 @@ btnSave.addEventListener('click', () => {
     }
 
 
+
 })
 
 
@@ -135,6 +128,34 @@ buttonLogout.addEventListener('click', () => {
         .catch(function (error) { });
 })
 
+window.onload = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            console.log('esta logueado')
+            userName.innerHTML = `${user.displayName}`;
+            userImage.innerHTML = ` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
+            writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+            if (userName.innerHTML == 'null') {
+                userName.innerHTML = `${user.email}`
+            }
+            
+            firebase.database().ref('/posts/')
+            .on('child_added', (newPosts) => {  
+                
+// writeNewPost (user.uid , user.displayName , post.value)
+            //     posts.innerHTML += `<p id="hola"> ${newPosts.val().author}</p>
+            //  <p class="post-area">${newPosts.val().body}</p>`;
+
+            });
+
+        }
+
+        else {
+            console.log('no esta logueado');
+        }
+        console.log("User > " + JSON.stringify(user));
+    });
+};
 
 
 
