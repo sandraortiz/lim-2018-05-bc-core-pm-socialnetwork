@@ -1,15 +1,105 @@
-.background-photo1{
-    width:100%;
-    height:100%;
-    position:absolute;
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+#title-nav {
+    font-family: 'Grand Hotel', cursive;
+    margin-left:3%;
+}
+
+#col-right, #col-right2 {
+margin-left:10%;
+}
+
+#col-right2 {
+    margin-left:47.5%;
+    margin-top:-190px;
+    width:90%;
 }
 
 
 .body-inicio{
-
     position: absolute;
     font-family: 'Oswald', sans-serif;
     margin-block-end: center;
 }
 
+.profile-photo {
+    width: 80px;
+    border-radius: 250%;
+}
+textarea {
+    resize: none;
+}
+
+.post-area {
+    width:90%;
+    height:40px;
+}
+
+.search1 {
+    margin-left:45px;
+    width:200px;
+    border-radius:20px;
+    border:none;
+    font-size: 14px;
+}
+
+#navbar {
+    height:50px;
+    
+}
+
+#userName {
+    font-family: 'Quicksand', sans-serif;
+    font-size:15px;
+    font-weight: 300;
+}
+
+.title-sobremi, .text-miPerfil, .text-share {
+    font-weight: 700;
+
+}
+
+.text-sobremi {
+    margin-left:18%;
+}
+
+.title-posts {
+    font-family: 'Quicksand', sans-serif;
+    font-weight:700;
+}
+
+          @media only screen and (max-width: 600px) {
+            #col-right {
+                margin-left:-12px;
+                width:108%;
+                }
+
+            #col-right2 {
+                margin-top:-30px;
+                margin-left:-12px;
+                margin-bottom:13px;
+                width:108%;
+                }
+        
+                #col-sobreMi {
+                    margin-top:20px;
+                    margin-bottom:20px;
+                }
+        
+        }
+
+        @media only screen and (max-width: 750px) {
+           
+        }
+
+        @media only screen and (max-width: 881px) {
+            .buttonLogout {
+            display:block;
+            }
+        }
+
+    
 
