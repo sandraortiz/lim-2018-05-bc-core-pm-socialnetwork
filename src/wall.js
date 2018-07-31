@@ -54,7 +54,7 @@ window.onload = () => {
                 .on('child_added', (newPosts) => {
 
                     if (user.uid == `${newPosts.val().uid}`) {
-                        console.log('hola');
+                        
                         posts.innerHTML +=
                             `<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
                         <img id='image' src="${newPosts.val().image}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
@@ -67,53 +67,89 @@ window.onload = () => {
                       
                       </div>
                       `;
-                        userspost.innerHTML += 
-                     `<div class="w3-container w3-card w3-white w3-round w3-margin" id='mypostss'><br>
+                        userspost.innerHTML +=
+                            `<div class="w3-container w3-card w3-white w3-round w3-margin" id='mypostss'><br>
                      <img id='image' src="${newPosts.val().image}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
                     
                      <h4 id='myuserpots'>${newPosts.val().author}</h4><br>
                      <hr class="w3-clear">
-                     <p id="myposts">${newPosts.val().body}</p>
+                     <p id="${newPosts.val().key}">${newPosts.val().body}</p>
                        
-                     <button id="likePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
-                     <button id="editPots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Editar</button>
-                     <button id="deletePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Eliminar</button> 
+                     <button id="${newPosts.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
+                     <button id="${newPosts.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Editar</button>
+                     <button id="${newPosts.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Eliminar</button> 
                    </div>`;
-                         const buttondelete = document.getElementById ("deletePots");
+                        const buttondelete = document.getElementById("deletePots");
                         buttondelete.addEventListener('click', () => {
                             firebase.database().ref().child('/user-posts/' + user.uid + '/' + newPosts.key).remove();
                             firebase.database().ref().child('/posts/' + newPosts.key).remove();
-                          mypostss.remove();
-                         })
-                         
-                //         editPots.addEventListener('click', () => {
-                //             editPots.remove()
-                //             document.getElementById("myposts").contentEditable = "true";
-                //             userspost.innerHTML += 
-                //      `<div class="w3-container w3-card w3-white w3-round w3-margin" id='myposts'><br>
+                            mypostss.remove();
+                        })
+                        const post = document.getElementById('mypostss');
+                        const buttonedit = document.getElementById("${newPosts.val().key}");
+                        buttonedit.addEventListener('click', () => {
+                                  
+                            buttonedit.style.display = 'none'
+                            document.getElementById("myposts").contentEditable = "true";
+                            var btnpublicar = document.createElement('button');
+                            btnpublicar.setAttribute('value', 'publicar');
+                            // btnpublicar.setAttribute('type', 'button');
+                            btnpublicar.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
+                            btnpublicar.setAttribute('id', `${newPosts.val().key}`  )
+                            btnpublicar.addEventListener('click', () => {
+                                 
+                            
+                                console.log('hola');
                      
-                //      <button id="deletePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>Publicar</button> 
-                //    </div>
-                //    `;
-                //             var btnpublicar = document.createElement('input');
-                //             btnpublicar.setAttribute('value', 'publicar');
-                //             btnpublicar.setAttribute('type', 'button');
-                //             btnpublicar.addEventListener('click', () => {
-                //                 const newUpdate = document.getElementById("mypots");
-                //                 const messageAreaText = newUpdate.value
-                //                 const nuevoPost = {
-                //                     body: messageAreaText,
-                //                 };
-                //                 var updateUser = {};
-                //                 // var updatePost = {};        
-                //                 updateUser['/user-posts/' + user.uid + '/' + newPosts.key] = nuevoPost;
-                //                 // updatePost['/posts/' + newPosts.key] = nuevoPost;
-                //                 firebase.database().ref().update(updateUser);
-                //                 // firebase.database().ref().update(updatePost);
-                //                 // updatePostUser(user.uid , newUpdate.value, newPosts.key);
-                //             })
-                //             mypots.appendChild(btnpublicar);
-                //         })
+                                
+                                const newUpdate = document.getElementById('myposts');
+                                const messageAreaText = newUpdate.innerText
+                                const postData = {
+                                      
+                                        body: messageAreaText,
+                                        
+                                };
+                                var updateUser = {};
+                                var updatePost = {};        
+                                updateUser['/user-posts/' + user.uid + '/' + newPosts.key] = postData;
+                                updatePost['/posts/' + newPosts.key] = postData;
+                                firebase.database().ref().update(updateUser);
+                                firebase.database().ref().update(updatePost);
+                                btnpublicar.style.display='none'
+                                buttonedit.style.display = 'block'
+                                //updatePostUser(user.uid , newUpdate.value, newPosts.key);
+                            })
+                        post.appendChild(btnpublicar);
+                        })
+
+                        //         editPots.addEventListener('click', () => {
+                        //             editPots.remove()
+                        //             document.getElementById("myposts").contentEditable = "true";
+                        //             userspost.innerHTML += 
+                        //      `<div class="w3-container w3-card w3-white w3-round w3-margin" id='myposts'><br>
+
+                        //      <button id="deletePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>Publicar</button> 
+                        //    </div>
+                        //    `;
+                        //             var btnpublicar = document.createElement('input');
+                        //             btnpublicar.setAttribute('value', 'publicar');
+                        //             btnpublicar.setAttribute('type', 'button');
+                        //             btnpublicar.addEventListener('click', () => {
+                        //                 const newUpdate = document.getElementById("mypots");
+                        //                 const messageAreaText = newUpdate.value
+                        //                 const nuevoPost = {
+                        //                     body: messageAreaText,
+                        //                 };
+                        //                 var updateUser = {};
+                        //                 // var updatePost = {};        
+                        //                 updateUser['/user-posts/' + user.uid + '/' + newPosts.key] = nuevoPost;
+                        //                 // updatePost['/posts/' + newPosts.key] = nuevoPost;
+                        //                 firebase.database().ref().update(updateUser);
+                        //                 // firebase.database().ref().update(updatePost);
+                        //                 // updatePostUser(user.uid , newUpdate.value, newPosts.key);
+                        //             })
+                        //             mypots.appendChild(btnpublicar);
+                        //         })
 
 
                         // const deletePots = document.getElementById('deletePots')
