@@ -1,3 +1,4 @@
+// Mostrar el registro
 const registerform = document.querySelector(".register");
 const buttonRegisterForm = document.querySelector('.buttonRegisterForm');
 const loginform = document.querySelector('.login');
@@ -21,6 +22,12 @@ const userPasswordLogin = document.querySelector(".userPasswordLogin");
 const buttonfacebookLogin = document.querySelector(".buttonFacebookLogin");
 const buttongoogleLogin = document.querySelector(".buttonGoogleLogin");
 const buttonLogin = document.querySelector('.buttonLogin');
+const  buttonReturn = document.getElementById('return')
+
+buttonReturn.addEventListener('click' , () => {
+    registerform.style.display = 'none';
+    loginform.style.display = 'block';
+})
 
 buttonLogin.addEventListener('click', () => {
     const emailValue = userEmailLogin.value;
@@ -71,6 +78,7 @@ buttongoogleLogin.addEventListener('click', () => {
 })
 
 buttonRegister.addEventListener('click', () => {
+
     const userEmailvalue = userEmail.value;
     const userPasswordvalue = userPassword.value;
     const userPasswordVerificationvalue = userPasswordVerification.value;
@@ -95,27 +103,3 @@ buttonRegister.addEventListener('click', () => {
     }
 })
 
-// buttonRegister.addEventListener('click', () => {
-
-//     const userEmailvalue = userEmail.value;
-//     const userPasswordvalue = userPassword.value;
-//     const userPasswordVerificationvalue = userPasswordVerification.value;
-//     // // console.log(userNameValue)
-//     // const userLastnameValue = userLastname.value; 
-//     if (userPasswordvalue.length >= 6) {
-//       if (userPasswordvalue == userPasswordVerificationvalue) {
-//         firebase.auth().createUserWithEmailAndPassword(userEmailvalue, userPasswordvalue)
-//           .then(() => {
-//             console.log("usuario creado");
-//             window.location = 'inicio.html';
-//           })
-//           .catch((error) => {
-//             console.log("error de firebase > Codigo > " + error.code);
-//             console.log("error de firebase > Mensaje >" + error.message)
-//           });
-//       }
-//     }
-//     else {
-//      
-//     }
-//   })

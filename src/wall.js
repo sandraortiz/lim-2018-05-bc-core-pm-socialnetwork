@@ -85,9 +85,7 @@ window.onload = () => {
                             firebase.database().ref().child('/posts/' + newPosts.key).remove();
                           mypostss.remove();
                          })
-
-                      const buttonedit = document.getElementById('');
-
+                         
                 //         editPots.addEventListener('click', () => {
                 //             editPots.remove()
                 //             document.getElementById("myposts").contentEditable = "true";
