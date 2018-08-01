@@ -58,11 +58,13 @@
             <p class="text-share"> ¿Qué quieres compartir hoy? </p>
             <textarea class="post-area" name="publicacion" id="post"></textarea>
             <p>
+             
+              <select class="w3-select" name="option" id="myselect">
+                <option value="orderByoption">Choose your option</option>
+                <option value="publico">publico</option>
+                <option value="privado">privado</option>
+              </select> 
               <button class="w3-button w3-lime" id="btnSave" value="Publicar">Publicar</button>
-              <input class="w3-radio" type="radio" name="gender" value="publico" >
-              <label>publico</label>
-              <input class="w3-radio" type="radio" name="gender" value="privado">
-              <label>privado</label>
             </p>
 
           </div>
@@ -74,7 +76,7 @@
             <!-- <p class="title-posts"> Noticias </p> -->
           </div>
           <div id="myuserpost" class="hiden">
-            <p id="aqui"></p>
+   
           </div>
         </div>
       </div>
