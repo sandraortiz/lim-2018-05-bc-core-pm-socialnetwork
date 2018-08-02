@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="wall.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme.css"> -->
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-lime.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +32,7 @@
           </div>
 
       <div id="perfil" class="w3-bar-item w3-right">
-        <button class="buttonPerfil w3-button w3-hover-white w3-padding-large" id="myperfil">
+        <button class="buttonPerfil w3-button w3-hover-white w3-padding-large" id="profile">
           <i class="fas fa-user"></i> Mi Perfil
         </button>
       </div>
@@ -62,7 +63,7 @@
 
     <div class="w3-row">
       <!-- PERFIL -->
-      <div class="profile w3-col m3" id="myperfilinformation">
+      <div class="profile w3-col m3" id="profileInformation">
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
             <p class="title-posts w3-center"> Mi Perfil </p>
@@ -79,10 +80,13 @@
         <div id="content-publicar" class="w3-container w3-card w3-white w3-round w3-margin" >
               <div class="w3-container">
                 <p class="text-share">  ¿Qué quieres compartir hoy? 
-                </p>
-                <textarea class="post-area" name="publicacion" id="post"></textarea>
-                <p>
-                  <button class="w3-button" id="btnSave" value="Publicar">Publicar <i class="fas fa-share"></i>
+               <textarea class="post-area" name="publicacion" id="postContent"></textarea>
+               <select class="w3-select" name="option" id="selectPublicPrivate">
+                <option value="orderByoption">Choose your option</option>
+                <option value="publico">publico</option>
+                <option value="privado">privado</option>
+              </select>
+                  <button class="w3-button" id="publishApost"  value="Publicar">Publicar <i class="fas fa-share"></i>
 
                   </button>
                 </p>
@@ -95,12 +99,14 @@
         <div id="noticias" class="w3-container w3-card w3-round w3-margin">
           <br>
             <p id="titlePublicaciones"> Mis publicaciones </p>
-          <div id="posts" class="hiden">
-            <p class="title-posts"> <i class="fas fa-globe-americas"></i>
-              NOTICIAS </p>
+           <div id="allPostsWall" class="hiden">
+          <p class="title-posts"> <i class="fas fa-globe-americas"></i>
+          NOTICIAS </p>
           </div>
-          <div id="myuserpost" class="hiden">
+          <!-- <div id="myuserpost" class="hiden">
             <p id="aqui"></p>
+          </div> -->
+          <div id="userPostProfile" class="hiden">
           </div>
         </div>
     </div>
