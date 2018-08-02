@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="wall.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-lime.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
   crossorigin="anonymous">
@@ -16,19 +17,43 @@
 <body class="w3-theme-l5">
   <!-- Navbar -->
   <div class="w3-top">
-    <div id="navbar" class="w3-bar w3-theme-d2 w3-left-align w3-large">
-      <button class="w3-bar-item w3-button w3-padding-large w3-theme-d4" id="wall" >
-      <!-- <a href="#" id="title-nav" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"> -->
-        <i class="fa fa-home w3-margin-right"></i>Eco Friends</a>
-        </button>
-      <div class="w3-dropdown-hover w3-hide-small">
-        <button class="w3-button w3-padding-large" id="myperfil">
-          mi perfil
-        </button>
-        <input class="search1" id="boxSearch" type="search" placeholder=" Buscar...">
-        <button class="buttonLogout w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Cerrar Sesión"><i class="fas fa-power-off"></i>
+    <div id="navbar" class="w3-bar w3-left-align w3-large">
+     
+      <div class="w3-bar-item">
+      <a  id="title-nav">
+        <i class="w3-margin-left w3-margin-right"></i>Eco Friends 
+        <img class="logo" src="https://crisescobar.files.wordpress.com/2018/07/el-cir-culo.png"></a>
+        </div>
+        
+        <div id="salir" class="w3-bar-item w3-right">
+          <button class="buttonLogout w3-right-align w3-bar-item w3-button   w3-padding-large w3-hover-white" title="Cerrar Sesión"> Salir <i class="fas fa-power-off"></i>
+          </button>
+          </div>
+
+      <div id="perfil" class="w3-bar-item w3-right">
+        <button class="buttonPerfil w3-button w3-hover-white w3-padding-large" id="myperfil">
+          <i class="fas fa-user"></i> Mi Perfil
         </button>
       </div>
+
+      <div id="home" class="w3-bar-item w3-right">
+        <button class="buttonHome w3-button w3-hover-white w3-padding-large" id="wall">
+          <i class="fa fa-home"></i> Home
+        </button>
+      </div>
+       
+         <div id="iconomenu" class="w3-bar-item" style="margin-left: 0%">
+          <div class="w3-container">
+              <div class="w3-dropdown-hover">
+                <button id="menuDrop" class="w3-button w3-black"><i class="fas fa-align-justify"></i></button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button"> Home </a>
+                  <a  href="#" class="w3-bar-item w3-button"> Perfil </a>
+                  <a class="buttonLogout w3-bar-item w3-button"> Salir </a>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
   </div>
 
@@ -36,46 +61,51 @@
     <!-- The Grid -->
 
     <div class="w3-row">
-      <!-- Left Column -->
-      <div class="w3-col m3" id="myperfilinformation">
-        <!-- Profile -->
+      <!-- PERFIL -->
+      <div class="profile w3-col m3" id="myperfilinformation">
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
+            <p class="title-posts w3-center"> Mi Perfil </p>
             <h4 class="text-miPerfil w3-center" id="userName"> </h4>
-            <p id="userImage" class="w3-center "></p>
-
+            <p id="userImage" class="w3-center"></p>
+            <br>
           </div>
         </div>
         <br>
-        <!-- End Left Column -->
       </div>
 
-      <div class="w3-col m8">
-        <div class="w3-container w3-card w3-white w3-round w3-margin" >
-       
-              <div class="w3-container w3-padding">
-                <p class="text-share"> ¿Qué quieres compartir hoy? </p>
+      <!-- PUBLICAR-->
+      <div id="publicar" class="w3-col m8">
+        <div id="content-publicar" class="w3-container w3-card w3-white w3-round w3-margin" >
+              <div class="w3-container">
+                <p class="text-share">  ¿Qué quieres compartir hoy? 
+                </p>
                 <textarea class="post-area" name="publicacion" id="post"></textarea>
                 <p>
-                  <button class="w3-button w3-lime" id="btnSave" value="Publicar">Publicar</button>
-                </p>
+                  <button class="w3-button" id="btnSave" value="Publicar">Publicar <i class="fas fa-share"></i>
 
+                  </button>
+                </p>
               </div>
-           
         </div>
-        <div class="w3-container w3-card w3-white w3-round w3-margin">
+      </div>
+    </div>
+      <div class="w3-row">
+         <!-- NOTICIAS -->
+        <div id="noticias" class="w3-container w3-card w3-round w3-margin">
           <br>
+            <p id="titlePublicaciones"> Mis publicaciones </p>
           <div id="posts" class="hiden">
-            <!-- <p class="title-posts"> Noticias </p> -->
+            <p class="title-posts"> <i class="fas fa-globe-americas"></i>
+              NOTICIAS </p>
           </div>
           <div id="myuserpost" class="hiden">
             <p id="aqui"></p>
           </div>
         </div>
-      </div>
- 
     </div>
 </div>
+
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
     <script src='config.js'></script>
     <script src="wall.js"></script>

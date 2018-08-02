@@ -8,16 +8,27 @@ const posts = document.getElementById('posts');
 const buttonperfil = document.getElementById('myperfil');
 const myperfil = document.getElementById('myperfilinformation');
 const buttonwall = document.getElementById('wall');
+const perfilNoticias = document.getElementById('noticias');
+
+
 
 buttonperfil.addEventListener('click', () => {
     posts.style.display = 'none';
     userspost.style.display = 'block';
     myperfil.style.display = 'block';
+    titlePublicaciones.style.display = 'block';
+    perfilNoticias.setAttribute("class" , "newsWall");
+    
 })
 buttonwall.addEventListener('click', () => {
     posts.style.display = 'block';
     userspost.style.display = 'none';
     myperfil.style.display = 'none';
+    titlePublicaciones.style.display = 'none';
+    perfilNoticias.setAttribute("class" , "newsProfile");
+
+  
+    
 })
 
 function escriborpostear() {
@@ -63,7 +74,7 @@ window.onload = () => {
                         <hr class="w3-clear">
                         <p id="mypots">${newPosts.val().body}</p>
                           
-                        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
+                        <button id="btnEcoLike" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
                       
                       </div>
                       `;
@@ -76,8 +87,8 @@ window.onload = () => {
                      <p id="myposts">${newPosts.val().body}</p>
                        
                      <button id="likePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
-                     <button id="editPots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Editar</button>
-                     <button id="deletePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Eliminar</button> 
+                     <button id="editPots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fas fa-pencil-alt"></i></button>
+                     <button id="deletePots" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fas fa-trash"></i></button> 
                    </div>`;
                          const buttondelete = document.getElementById ("deletePots");
                         buttondelete.addEventListener('click', () => {
@@ -129,7 +140,7 @@ window.onload = () => {
                  <hr class="w3-clear">
                  <p id="mypots">${newPosts.val().body}</p>
                    
-                 <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
+                 <button type="button"  class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
   
                </div>
                `;
