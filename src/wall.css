@@ -2,13 +2,13 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-#myuserpost{
-display: none;
-}
-#myperfilinformation{
+
+#userPostProfile{
     display: none;
-    margin-top:32px;
-}
+    }
+#profileInformation{
+        display: none;
+    }
 
 #titlePublicaciones {
     display:none;
