@@ -7,11 +7,16 @@ display: none;
 }
 #myperfilinformation{
     display: none;
+    margin-top:32px;
 }
-#title-nav {
-    font-family: 'Grand Hotel', cursive;
-    margin-left:3%;
+
+#titlePublicaciones {
+    display:none;
+    font-size: 20px;
+    margin-left:15px;
+    font-weight:700;
 }
+
 
 #col-right, #col-right2 {
 margin-left:10%;
@@ -21,6 +26,10 @@ margin-left:10%;
     margin-left:47.5%;
     margin-top:-190px;
     width:90%;
+}
+
+body {
+    background-color: #fcfdf3;
 }
 
 .body-inicio{
@@ -39,20 +48,87 @@ textarea {
 
 .post-area {
     width:90%;
-    height:40px;
+    height:70px;
+    background-color: rgb(244, 249, 201);
+    border:none;
+    
 }
 
-.search1 {
-    margin-left:45px;
-    width:200px;
-    border-radius:20px;
-    border:none;
-    font-size: 14px;
-}
 
 #navbar {
-    height:50px;
+    height:75px;
+    background-color: rgb(133, 206, 15);
+    color:white;
+}
+
+.profile {
+    margin-top:15px;
+}
+
+#title-nav {
+    font-family: 'Grand Hotel', cursive;
+    margin-left:35%;
+    font-size: 45px;
+    text-decoration: none;
+    margin-right: -500px;
+}
+
+.logo {
+    margin-top:-10px;
+    width:20%;
+}
+
+
+.buttonLogout, .buttonHome, .buttonPerfil {
     
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#btnSave {
+    background-color: #a6b32e;
+    color:rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+#btnEcoLike {
+    background-color: rgb(200, 216, 49);
+
+    
+}
+
+#deletePots{
+    background-color: rgb(208, 230, 113);
+    
+}
+#editPots{
+    background-color: rgb(208, 230, 113);
+}
+#likePots {
+    background-color: rgb(200, 216, 49);
+}
+
+
+#publicar {
+    margin-top:20px;
+    
+}
+
+
+
+.newsWall {
+    margin-left:25%;
+    width:66%;
+}
+
+.newsProfile {
+    
+    width:66%;
+}
+
+#mypots {
+    background-color: #f6f7da;
+    height:80px;
 }
 
 #userName {
@@ -63,46 +139,110 @@ textarea {
 
 .title-sobremi, .text-miPerfil, .text-share {
     font-weight: 700;
-
-}
-
-.text-sobremi {
-    margin-left:18%;
+    font-size:20px;
 }
 
 .title-posts {
     font-family: 'Quicksand', sans-serif;
     font-weight:700;
+    font-size: 20px;
+    margin-left: 13px;
 }
 
-          @media only screen and (max-width: 600px) {
+#iconomenu {
+    display:none;
+}
+
+          @media only screen and (max-width: 629px) {
             #col-right {
                 margin-left:-12px;
-                width:108%;
+               
                 }
 
             #col-right2 {
                 margin-top:-30px;
                 margin-left:-12px;
                 margin-bottom:13px;
-                width:108%;
+               
                 }
-        
-                #col-sobreMi {
-                    margin-top:20px;
-                    margin-bottom:20px;
+
+                .newsProfile {
+                    
+                    width:100%;
                 }
+
+                .newsWall {
+                    margin-left:0px; 
+                    width:100%;
+                    
+                }
+
+                
         
-        }
+                #title-nav {
+                    margin-left:0%;
+                    font-size: 35px;
+                    margin-right: -500px;
+                    margin-top:80px;
+                }
 
-        @media only screen and (max-width: 750px) {
-           
-        }
+                .text-share {
+                    font-size: 16px;
+                }
 
-        @media only screen and (max-width: 881px) {
-            .buttonLogout {
-            display:block;
+                .logo {
+                   visibility: hidden;
+                }
+
+                .title-posts {
+                    font-size: 16px;
+                   
+                }
+
+                #home, #salir, #perfil {
+                    display:none;
+               }
+
+               #iconomenu {
+                display:block;
+                margin-left: 20%;
+                margin-top:5px;
+                
+            }  
+
+            #content-publicar {
+                width:90%;
+                
             }
+        
+        }
+
+        @media only screen and  (min-width: 629px) and (max-width: 800px) {
+            #home, #salir, #perfil {
+                 
+            }
+
+            #iconomenu {
+                display:none;
+                
+            }
+
+            #title-nav {
+                margin-left:0%;
+                font-size:30px;
+            }
+
+            #content-publicar {
+                width:140%;
+                
+            }
+
+            .newsWall {
+                
+                width:100%;
+                
+            }
+
         }
 
     
