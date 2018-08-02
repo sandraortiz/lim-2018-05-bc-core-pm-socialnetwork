@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html>
-<title>Eco - friends</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="wall.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-lime.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-  crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+
+<head>
+  <title>Eco-friends</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="wall.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-lime.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+</head>
 
 <body class="w3-theme-l5">
   <!-- Navbar -->
   <div class="w3-top">
     <div id="navbar" class="w3-bar w3-theme-d2 w3-left-align w3-large">
-      <button class="w3-bar-item w3-button w3-padding-large w3-theme-d4" id="wall">
-        <!-- <a href="#" id="title-nav" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"> -->
-        <i class="fa fa-home w3-margin-right"></i>Eco Friends</a>
-      </button>
+      <button class="w3-bar-item w3-button w3-padding-large w3-theme-d4" id="wall"><i class="fa fa-home w3-margin-right"></i>Eco Friends</a></button>
       <div class="w3-dropdown-hover w3-hide-small">
-        <button class="w3-button w3-padding-large" id="myperfil">
-          mi perfil
-        </button>
-        <input class="search1" id="boxSearch" type="search" placeholder=" Buscar...">
-        <button class="buttonLogout w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Cerrar Sesión">
-          <i class="fas fa-power-off"></i>
+       <button class="w3-button w3-padding-large" id="Profile">mi perfil</button>
+        <button class="buttonLogout w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Cerrar Sesión"> <i class="fas fa-power-off"></i>
         </button>
       </div>
     </div>
@@ -35,58 +31,47 @@
 
   <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
     <!-- The Grid -->
-
     <div class="w3-row">
       <!-- Left Column -->
-      <div class="w3-col m3" id="myperfilinformation">
+      <div class="w3-col m3" id="profileInformation">
         <!-- Profile -->
         <div class="w3-card w3-round w3-white">
           <div class="w3-container">
             <h4 class="text-miPerfil w3-center" id="userName"> </h4>
             <p id="userImage" class="w3-center "></p>
-
           </div>
         </div>
         <br>
-        <!-- End Left Column -->
-      </div>
 
+      </div>
+      <!-- End Left Column -->
       <div class="w3-col m8">
         <div class="w3-container w3-card w3-white w3-round w3-margin">
-
           <div class="w3-container w3-padding">
             <p class="text-share"> ¿Qué quieres compartir hoy? </p>
-            <textarea class="post-area" name="publicacion" id="post"></textarea>
-            <p>
-             
-              <select class="w3-select" name="option" id="myselect">
-                <option value="orderByoption">Choose your option</option>
-                <option value="publico">publico</option>
-                <option value="privado">privado</option>
-              </select> 
-              <button class="w3-button w3-lime" id="btnSave" value="Publicar">Publicar</button>
-            </p>
-
+            <textarea class="post-area" name="publicacion" id="postContent"></textarea>
+            <select class="w3-select" name="option" id="selectPublicPrivate">
+              <option value="orderByoption">Choose your option</option>
+              <option value="publico">publico</option>
+              <option value="privado">privado</option>
+            </select>
+            <button class="w3-button w3-lime" id="publishApost" value="Publicar">Publicar</button>
           </div>
-
         </div>
         <div class="w3-container w3-card w3-white w3-round w3-margin">
           <br>
-          <div id="posts" class="hiden">
+          <div id="allPostsWall" class="hiden">
             <!-- <p class="title-posts"> Noticias </p> -->
           </div>
-          <div id="myuserpost" class="hiden">
-   
+          <div id="userPostProfile" class="hiden">
           </div>
         </div>
       </div>
-
     </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
   <script src='config.js'></script>
   <script src="wall.js"></script>
-
 </body>
 
 </html>

@@ -1,13 +1,46 @@
 const buttonLogout = document.querySelector(".buttonLogout");
-const bd = document.getElementById('bd');
-const btnSave = document.getElementById('btnSave');
-const userspost = document.getElementById('myuserpost');
-const posts = document.getElementById('posts');
-const buttonperfil = document.getElementById('myperfil');
-const myperfil = document.getElementById('myperfilinformation');
-const buttonwall = document.getElementById('wall');
-const post = document.getElementById('post');
-const optionEstado = document.getElementById('myselect');
+const userPostProfile = document.getElementById('userPostProfile');
+const allPostsWall= document.getElementById('allPostsWall');
+const buttonProfile = document.getElementById('Profile');
+const buttonWall = document.getElementById('wall');
+const profileInformation = document.getElementById('profileInformation');
+const buttonPublishApost = document.getElementById('publishApost'); 
+const postContent = document.getElementById('postContent');
+const selectPublicPrivate = document.getElementById('selectPublicPrivate');
+// const bd = document.getElementById('bd');
+buttonProfile.addEventListener('click', () => {
+    allPostsWall.style.display = 'none';
+    userPostProfile.style.display = 'block';
+    profileInformation.style.display = 'block';
+})
+buttonWall.addEventListener('click', () => {
+    allPostsWall.style.display = 'block';
+    userPostProfile.style.display = 'none';
+    profileInformation.style.display = 'none';
+})
+buttonLogout.addEventListener('click', () => {
+    firebase.auth().signOut().then(function () {
+        window.location = "home.html"
+    })
+        .catch(function (error) { });
+})
+buttonPublishApost.addEventListener('click', () => {
+    const postMuro = postContent.value;
+    const space = postMuro.trim()
+    const select = selectPublicPrivate.value;
+    if (postMuro.length !== 0 && space !== '') {
+        if (select== 'publico') {
+            writeNewPostFirebase();
+        }
+        else if (select == 'privado') {
+            writePrivateUserPosts ();
+        }
+
+        else {
+            alert('por favor escoga una opcion')
+        }
+    }
+})
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -18,10 +51,10 @@ window.onload = () => {
             if (userName.innerHTML == 'null') {
                 userName.innerHTML = `${user.email}`
             }
-            writeUserData(user.uid, user.displayName, user.email, user.photoURL);
+            writeUserDataFirebase(user.uid, user.displayName, user.email, user.photoURL);
             //  writeNewPost(user.uid ,user.displayName , user.photoURL , post.value);
 
-            callFirebasePosts(user.uid)
+            callFirebaseAllPosts(user.uid)
         }
         else {
             console.log('no esta logueado');
@@ -30,17 +63,9 @@ window.onload = () => {
     });
 }
 
-const writeUserData = (userId, name, email, imageUrl) => {
-    firebase.database().ref('users/' + userId).set({
-        username: name,
-        email: email,
-        profile_picture: imageUrl
-    });
-}
-
-const writeNewPost = () => {
+const writeNewPostFirebase = () => {
     const currentUser = firebase.auth().currentUser;
-    const messageAreaText = post.value;
+    const messageAreaText = postContent .value;
     var newPostKey = firebase.database().ref().child('posts').push().key;
     var postData = {
         image: currentUser.photoURL,
@@ -56,10 +81,16 @@ const writeNewPost = () => {
     return firebase.database().ref().update(updates);
 
 }
-
-const privatePost = () => {
+const writeUserDataFirebase = (userId, name, email, imageUrl) => {
+    firebase.database().ref('users/' + userId).set({
+        username: name,
+        email: email,
+        profile_picture: imageUrl
+    });
+}
+const writePrivateUserPosts = () => {
     const currentUser = firebase.auth().currentUser;
-    const messageAreaText = post.value;
+    const messageAreaText = postContent.value;
     var newPostKey = firebase.database().ref().child('posts').push().key;
     var postData = {
         image: currentUser.photoURL,
@@ -74,136 +105,133 @@ const privatePost = () => {
     return firebase.database().ref().update(updates);
 }
 
-const callFirebasePosts = (uid) => {
+const callFirebaseAllPosts = (uid) => {
     const userPost = firebase.database().ref('user-posts').child(uid);
     userPost.on("child_added", newPostsUser => {
-        escribirmyuser(newPostsUser);
+        showPostsUserProfile(newPostsUser);
     });
     const everybodyPost = firebase.database().ref('posts');
     everybodyPost.on("child_added", newPosts => {
-        escribirDatatTodosLosposts(newPosts);
+        showallPostsWall(newPosts);
 
     });
 
 }
 
-const escribirDatatTodosLosposts = (newPosts) => {
-    posts.innerHTML +=
+const showallPostsWall = (newPosts) => {
+    allPostsWall.innerHTML +=
         `<div class="w3-container w3-card w3-white w3-round w3-margin"><br>
                         <img id='image' src="${newPosts.val().image}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
                        <h4 id=${newPosts.val().key}>${newPosts.val().author}</h4><br>
                         <hr class="w3-clear">
-                        <p id="mypots">${newPosts.val().body}</p>
+                         <p id="mypots">${newPosts.val().body}</p>
                         <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
                       
                       </div>
                       `;
 
 }
-const escribirmyuser = (newPostsUser) => {
-    userspost.innerHTML += `<div class="w3-container w3-card w3-white w3-round w3-margin" id="${newPostsUser.val().key}"><br>
-<img id="${newPostsUser.val().key}" src="${newPostsUser.val().image}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-<h4 id="${newPostsUser.val().key}">${newPostsUser.val().author}</h4><br>
-<hr class="w3-clear">
-<p id="${newPostsUser.val().key}">${newPostsUser.val().body}</p>
-<button id="${newPostsUser.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom buttondelets"><i class="fa fa-thumbs-up"></i> EcoLike</button> 
-<button id="${newPostsUser.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i> Editar</button>
-<button id="${newPostsUser.val().key}" type="button" class="w3button"><i class="fa fa-thumbs-up"></i> Eliminar</button> 
-</div>`;
+const  showPostsUserProfile = (newPostsUser) => {
+    const postskey = newPostsUser.key
+    var contPost = document.createElement('div');
+    contPost.setAttribute('class', "w3-container w3-card w3-white w3-round w3-margin")
+    var image = document.createElement('img');
+    image.setAttribute('src', `${newPostsUser.val().image}`)
+    image.setAttribute('class', "w3-left w3-circle w3-margin-right")
+    image.setAttribute('style', "width:60px")
+    image.setAttribute('alt', "Avatar")
+    const espacaio = document.createElement('hr');
+    espacaio.setAttribute('class', "w3-clear")
+    const author = document.createElement('h4');
+    author.innerHTML = `${newPostsUser.val().author}`
+    // author.setAttribute('class',  )
 
-    const buttonvdelete = document.querySelector(".w3button");
+    var textPost = document.createElement('p');
+    textPost.setAttribute('class', "w3-left w3-circle w3-margin-right");
+    textPost.setAttribute('id', postskey);
 
-    buttonvdelete.addEventListener('click', (evt) => {
+    var btnEdit = document.createElement('input');
+    btnEdit.setAttribute('value', 'Editar');
+    btnEdit.setAttribute('type', 'button');
+    btnEdit.setAttribute('id', postskey);
+    btnEdit.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
 
-        if  (newPostsUser.val().key = evt.target.id) {
-             firebase.database().ref().child( `/user-posts/${newPostsUser.val().uid}/${newPostsUser.val().key }`).remove();
-        firebase.database().ref().child( `/posts/${newPostsUser.val().key }`).remove();  
+    var btnDelete = document.createElement('input');
+    btnDelete.setAttribute('value', 'delete');
+    btnDelete.setAttribute('type', 'button');
+    btnDelete.setAttribute('id', postskey);
+    btnDelete.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
+
+    var btnLike = document.createElement('input');
+    btnLike.setAttribute('value', 'Like');
+    btnLike.setAttribute('type', 'button');
+    btnLike.setAttribute('id', 'likes');
+
+
+    // debugger
+    textPost.setAttribute('id', postskey);
+    textPost.innerHTML = `${newPostsUser.val().body}`;
+    btnDelete.addEventListener('click', (evt) => {
+        if (newPostsUser.key === evt.target.id) {
+            const question = confirm('Esta seguro que desea eliminar esta publicacion?')
+            if (question === true) {
+                firebase.database().ref().child(`/posts/${newPostsUser.key}`).remove();
+                firebase.database().ref().child(`/user-posts/${newPostsUser.val().uid}/${newPostsUser.key}`).remove();
+           contPost.remove();
+                // textPost.remove();
+                // btnEdit.remove();
+                // btnDelete.remove();
+                // btnLike.remove();
+            }
         }
-        //       firebase.database().ref().child('/user-posts/' + user.uid + '/' + newPosts.key).remove();
-        // firebase.database().ref().child('/posts/' + newPosts.key).remove();
-     
-        // mypostss.remove();
+
     })
 
-//     const buttondelete = document.getElementById("deletePots");
-//     buttondelete.addEventListener('click', () => {
-//         firebase.database().ref().child('/user-posts/' + user.uid + '/' + newPosts.key).remove();
-//         firebase.database().ref().child('/posts/' + newPosts.key).remove();
-//         mypostss.remove();
-// })
-    // const post = document.getElementById('mypostss');
-    // const buttonedit = document.getElementById("${newPosts.val().key}");
-    // buttonedit.addEventListener('click', () => {
+    btnEdit.addEventListener('click', (evt) => {
+        textPost.contentEditable = "true";
+        btnEdit.style.display = 'none';
+        var btnpublish = document.createElement('input');
+        btnpublish.setAttribute('value', 'publicar');
+        btnpublish.setAttribute('type', 'button');
+        btnpublish.addEventListener('click', () => {
+            if (newPostsUser.key  === evt.target.id) {
 
-    //     buttonedit.style.display = 'none'
-    //     document.getElementById("myposts").contentEditable = "true";
-    //     var btnpublicar = document.createElement('button');
-    //     btnpublicar.setAttribute('value', 'publicar');
-    //     // btnpublicar.setAttribute('type', 'button');
-    //     btnpublicar.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
-    //     btnpublicar.setAttribute('id', `${newPostsUser.val().key}`)
-    //     btnpublicar.addEventListener('click', () => {
+                const currentUser = firebase.auth().currentUser;
+                const newUpdate = document.getElementById(postskey);
+
+                const newPostvalue = newUpdate.innerText
+                const nuevoPost = {
+                    body: newPostvalue,
+                    image: currentUser.photoURL,
+                    author: currentUser.displayName,
+                    uid: currentUser.uid,
+                    key: postskey,
+                    likeCount: 0,
+                };
+                var updatesUser = {};
+                var updatesPost = {};
+                updatesUser[`/user-posts/${newPostsUser.val().uid}/${newPostsUser.key}`] = nuevoPost;
+                updatesPost[`/posts/${newPostsUser.key}`] = nuevoPost;
+               firebase.database().ref().update(updatesUser);
+                firebase.database().ref().update(updatesPost);
+            }
+            btnpublish.style.display = 'none';
+            btnEdit.style.display = 'block';
+        })
+        contPost.appendChild(btnpublish);
+  });
+
+    userPostProfile.appendChild(contPost);
+     contPost.appendChild(image);
+    contPost.appendChild(author);
+    contPost.appendChild(espacaio);
+    contPost.appendChild(textPost);
+    contPost.appendChild(espacaio);
+    contPost.appendChild(btnEdit);
+    contPost.appendChild(btnDelete);
 
 
-    //         console.log('hola');
-
-
-    //         const newUpdate = document.getElementById('myposts');
-    //         const messageAreaText = newUpdate.innerText
-    //         const postData = {
-
-    //             body: messageAreaText,
-
-    //         };
-    //         var updateUser = {};
-    //         var updatePost = {};
-    //         updateUser['/user-posts/' + user.uid + '/' + newPosts.key] = postData;
-    //         updatePost['/posts/' + newPosts.key] = postData;
-    //         firebase.database().ref().update(updateUser);
-    //         firebase.database().ref().update(updatePost);
-    //         btnpublicar.style.display = 'none'
-    //         buttonedit.style.display = 'block'
-    //         //updatePostUser(user.uid , newUpdate.value, newPosts.key);
-    //     })
-    //     post.appendChild(btnpublicar);
-    // })
 }
-
-buttonperfil.addEventListener('click', () => {
-    posts.style.display = 'none';
-    userspost.style.display = 'block';
-    myperfil.style.display = 'block';
-})
-buttonwall.addEventListener('click', () => {
-    posts.style.display = 'block';
-    userspost.style.display = 'none';
-    myperfil.style.display = 'none';
-})
-
-buttonLogout.addEventListener('click', () => {
-    firebase.auth().signOut().then(function () {
-        window.location = "home.html"
-    })
-        .catch(function (error) { });
-})
-
-btnSave.addEventListener('click', () => {
-    const postMuro = post.value;
-    const space = postMuro.trim()
-    const hola = optionEstado.value;
-    if (postMuro.length !== 0 && space !== '') {
-        if (hola == 'publico') {
-            writeNewPost();
-        }
-        else if (hola == 'privado') {
-            privatePost();
-        }
-
-        else {
-            alert('por favor escoga una opcion')
-        }
-    }
-})
 
 
 
