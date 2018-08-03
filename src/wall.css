@@ -4,7 +4,7 @@
 
 .topnav {
     overflow: hidden;
-    background-color:#abbd0d;
+    background-color:#b8cc00;
   }
   
   .topnav a {
@@ -14,9 +14,11 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
+    cursor:pointer;
     
   }
+
   
   .topnav a:hover {
     background-color: rgb(255, 255, 255);
@@ -24,10 +26,27 @@
   }
   
   .active {
-    background-color: #4CAF50;
+    background-color: rgb(157, 175, 76);
     color: white;
     font-family: 'Grand Hotel', cursive;
+    
+    
+    
   }
+
+#publicar {
+    margin-top:-40px;
+}
+  #tit-nav {
+      font-size: 30px;
+
+  }
+
+.item {
+  margin-top:5px;
+  margin-left:10px;
+}
+  
   
   .topnav .icon {
     display: none;
@@ -39,6 +58,7 @@
     }
 
 #profileInformation{
+    margin-top:-23px;
         display: none;
     }
 
@@ -206,13 +226,33 @@ margin-right:1%;
 #iconomenu {
     display:none;
 }
+/* .classCount {
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 10px;
+    font-weight: 700;
+
+} */
 
 @media screen and (max-width: 600px) {
+
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
+    margin-right:15px;
+    margin-top:5px;
     display: block;
   }
+  .text-miPerfil{
+      font-size: 1000px;
+  }
+  #selectPublicPrivate, #publishApost {
+      width:70px;
+      margin-left:10px;
+      height:40px;
+      font-size: 10px;
+  }
+ 
+
 }
 
 @media screen and (max-width: 600px) {
@@ -227,12 +267,23 @@ margin-right:1%;
     display: block;
     text-align: left;
   }
+
+  #profileInformation {
+      margin-bottom: 13px;
+  }
+
+  .author {
+      font-size: 80%;
+      font-weight:700;
+  }
 }
           @media only screen and (max-width: 629px) {
             #col-right {
                 margin-left:-12px;
                
                 }
+
+
 
             #col-right2 {
                 margin-top:-30px;
@@ -262,7 +313,7 @@ margin-right:1%;
                 }
 
                 .text-share {
-                    font-size: 16px;
+                    font-size: 12px;
                 }
 
                 .logo {
@@ -290,9 +341,7 @@ margin-right:1%;
         }
 
         @media only screen and  (min-width: 629px) and (max-width: 800px) {
-            #home, #salir, #perfil {
-                 
-            }
+         
 
             #iconomenu {
                 display:none;
