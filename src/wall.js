@@ -1,14 +1,23 @@
-const buttonLogout = document.querySelector(".buttonLogout");
+const buttonLogout = document.querySelector("#out");
 const userPostProfile = document.getElementById('userPostProfile');
 const allPostsWall = document.getElementById('allPostsWall');
 const buttonProfile = document.getElementById('profile');
-const buttonWall = document.getElementById('wall');
+const buttonWall = document.getElementById('home');
 const profileInformation = document.getElementById('profileInformation');
 const buttonPublishApost = document.getElementById('publishApost');
 const postContent = document.getElementById('postContent');
 const selectPublicPrivate = document.getElementById('selectPublicPrivate');
 const perfilNoticias = document.getElementById('noticias');
 // const bd = document.getElementById('bd');
+
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
 
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
