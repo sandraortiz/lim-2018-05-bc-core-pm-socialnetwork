@@ -88,7 +88,8 @@ const writeNewPostFirebase = () => {
         uid: currentUser.uid,
         body: messageAreaText,
         key: newPostKey,
-        likeCount: 0,
+        likeCount: 0 ,
+        email:currentUser.email,
     };
     const updates = {};
     updates['/posts/' + newPostKey] = postData;
@@ -107,7 +108,8 @@ const writePrivateUserPosts = () => {
         uid: currentUser.uid,
         body: messageAreaText,
         key: newPostKey,
-        likeCount: 0,
+        likeCount: 0 ,
+        email:currentUser.email,
     };
     const updates = {};
     updates['/user-posts/' + currentUser.uid + '/' + newPostKey] = postData;
@@ -134,7 +136,7 @@ const showallPostsWall = (newPosts) => {
     contPost.setAttribute('class', "w3-container w3-card w3-white w3-round w3-margin")
 
     const image = document.createElement('img');
-    image.setAttribute('src', `${newPosts.val().image}`)
+  
     image.setAttribute('class', "w3-left w3-circle w3-margin-right")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
@@ -143,7 +145,7 @@ const showallPostsWall = (newPosts) => {
     espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
-    author.innerHTML = `${newPosts.val().author}`
+    // author.innerHTML = `${newPosts.val().author}`
     // author.setAttribute('class',  )
 
     const textPost = document.createElement('p');
@@ -155,30 +157,59 @@ const showallPostsWall = (newPosts) => {
     type="button" class="w3-button w3-theme-d1 w3-margin-bottom ">
     <i class="fa fa-thumbs-up"></i> EcoLike</button>  */
     const btnLike = document.createElement('input');
-    btnLike.setAttribute('value', 'Like');
+    btnLike.setAttribute('value', 'me gusta');
     btnLike.setAttribute('type', 'button');
     btnLike.setAttribute('id', postskey);
     btnLike.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
-    btnLike.addEventListener('click', () => {
     
+    const contadorlike = document.createElement('a')  ;
+    contadorlike.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
+
+    contadorlike.setAttribute('id' , postskey);
+    contadorlike.innerHTML=`${newPosts.val().likeCount}`;
+    var clicks = 0;  
+    btnLike.addEventListener('click', () => {
+         clicks += 1;
+     contadorlike.innerHTML = clicks;
+
+     const newUpdate = textPost.innerText
+     const newPostvalue = newUpdate
+     const nuevoPost = {
+         body: newPostvalue,
+         image:`${newPosts.val().image}`,
+         author:`${newPosts.val().author}`,
+         uid:`${newPosts.val().uid}`,
+         key: postskey,
+         likeCount:clicks,
+     };
+     const updatesUser = {};
+     const updatesPost = {};
+ 
+     updatesPost[`/posts/${newPosts.key}`] = nuevoPost;
+    
+     firebase.database().ref().update(updatesPost);
+ 
     })
-    // const icolike = document.createElement('i')
-    // icolike.setAttribute('class' , "fa fa-thumbs-up")
-
-
-
-    // <button type="button" onClick="onClick()">
-    //<i class="fa fa-thumbs-up">Clicks:<a id="clicks">0</i></button>
-
     allPostsWall.appendChild(contPost);
-
     contPost.appendChild(image);
     contPost.appendChild(author);
     contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
     contPost.appendChild(espacaio);
     contPost.appendChild(btnLike);
-    // btnLike.appendChild(icolike);
+    contPost.appendChild(contadorlike);
+    if(`${newPosts.val().author}` == 'undefined' )
+    {
+
+
+        author.innerHTML =  `${newPosts.val().email}`
+        image.setAttribute('src', 'https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png')
+    }
+    else{
+        author.innerHTML = `${newPosts.val().author}` 
+           image.setAttribute('src', `${newPosts.val().image}`)
+    }
+
 }
 const showPostsUserProfile = (newPostsUser) => {
     const postskey = newPostsUser.key
@@ -187,7 +218,7 @@ const showPostsUserProfile = (newPostsUser) => {
     contPost.setAttribute('class', "w3-container w3-card w3-white w3-round w3-margin")
 
     const image = document.createElement('img');
-    image.setAttribute('src', `${newPostsUser.val().image}`)
+
     image.setAttribute('class', "w3-left w3-circle w3-margin-right")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
@@ -196,8 +227,8 @@ const showPostsUserProfile = (newPostsUser) => {
     espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
-    author.innerHTML = `${newPostsUser.val().author}`
-    // author.setAttribute('class',  )
+  
+ 
 
     const textPost = document.createElement('p');
     textPost.setAttribute('class', "w3-left w3-circle w3-margin-right");
@@ -228,10 +259,7 @@ const showPostsUserProfile = (newPostsUser) => {
                 firebase.database().ref().child(`/posts/${newPostsUser.key}`).remove();
                 firebase.database().ref().child(`/user-posts/${newPostsUser.val().uid}/${newPostsUser.key}`).remove();
                 contPost.remove();
-                // textPost.remove();
-                // btnEdit.remove();
-                // btnDelete.remove();
-                // btnLike.remove();
+            
             }
         }
    
@@ -279,7 +307,14 @@ const showPostsUserProfile = (newPostsUser) => {
     contPost.appendChild(espacaio);
     contPost.appendChild(btnEdit);
     contPost.appendChild(btnDelete);
-
+    if(`${newPostsUser.val().author}` == 'undefined' ){
+        author.innerHTML =  `${newPostsUser.val().email}`
+        image.setAttribute('src', 'https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png')
+    }
+    else{
+        author.innerHTML = `${newPostsUser.val().author}` 
+           image.setAttribute('src', `${newPostsUser.val().image}`)
+    }
 
 }
 
