@@ -12,9 +12,9 @@ Somos fervientes creyentes que el cambiar del mundo empieza por nosotros mismos,
 
 Entra aquí: ()
 
-Versión desktop: ![]()
+Versión desktop: ![DESKTOP](https://crisescobar.files.wordpress.com/2018/08/whatsapp-image-2018-08-03-at-13-02-211.jpeg)
 
-Versión mobile: ![]()
+Versión mobile: ![MOBILE](https://crisescobar.files.wordpress.com/2018/08/38457971_1784298251617613_816387619846881280_n.png)
 
 
 ### Elementos básicos de una red social.

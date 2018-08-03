@@ -27,7 +27,7 @@ window.onload = () => {
             userImage.innerHTML = ` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
             if (userName.innerHTML == 'null') {
                 userName.innerHTML = `${user.email}`;
-                userImage.innerHTML = `<i class="fab fa-pagelines" style="font-size:55px;color:green"></i>`;                ;
+                userImage.innerHTML = `<img src="https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png" alt="user" class="profile-photo" />`;                ;
             }
             writeUserDataFirebase(user.uid, user.displayName, user.email, user.photoURL);
             //  writeNewPost(user.uid ,user.displayName , user.photoURL , post.value);
@@ -99,6 +99,7 @@ const writeNewPostFirebase = () => {
         body: messageAreaText,
         key: newPostKey,
         likeCount: 0,
+        email: currentUser.email
     };
     const updates = {};
     updates['/posts/' + newPostKey] = postData;
@@ -118,6 +119,8 @@ const writePrivateUserPosts = () => {
         body: messageAreaText,
         key: newPostKey,
         likeCount: 0,
+        email: currentUser.email
+
     };
     const updates = {};
     updates['/user-posts/' + currentUser.uid + '/' + newPostKey] = postData;
@@ -143,22 +146,20 @@ const showallPostsWall = (newPosts) => {
     contPost.setAttribute('class', "w3-container w3-card w3-white w3-round w3-margin")
 
     const image = document.createElement('img');
-    image.setAttribute('src', `${newPosts.val().image}`)
     image.setAttribute('class', "w3-left w3-circle w3-margin-top")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
 
-    // const espacaio = document.createElement('hr');
-    // espacaio.setAttribute('class', "w3-clear")
+    const espacaio = document.createElement('hr');
+    espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
-    author.innerHTML = `${newPosts.val().author}`
     author.setAttribute('style',"margin-top: 22px,");
     author.setAttribute('class',"author");
     // author.setAttribute('class',  )
 
     const textPost = document.createElement('p');
-    textPost.setAttribute('class', 'publish');
+    textPost.setAttribute('class', 'w3-left w3-circle w3-margin-right');
     textPost.setAttribute('id', postskey);
     textPost.innerHTML = `${newPosts.val().body}`;
 
@@ -166,25 +167,61 @@ const showallPostsWall = (newPosts) => {
     const br = document.createElement('br');
     const btnLike = document.createElement('input');
     btnLike.setAttribute('value', 'Like ♥');
-    btnLike.setAttribute('type', 'button');
+    btnLike.setAttribute('type', 'button')
     btnLike.setAttribute('id', postskey);
     // btnLike.setAttribute('style', "background-color: orange;");
     btnLike.setAttribute('class' , "w3-pink w3-button w3-margin-bottom ");
+    // btnLike.setAttribute('style','margin: 2px')
     // const icolike = document.createElement('i');
     
     // icolike.setAttribute('class', 'fas fa-thumbs-up');
-    
+    const contadorlike = document.createElement('a');
+    contadorlike.setAttribute('class','w3-pink w3-button w3-margin-bottom ')
+   contadorlike.setAttribute('id' , postskey);
+   contadorlike.innerHTML=`${newPosts.val().likeCount}`;
+   var clicks = 0;  
+   btnLike.addEventListener('click', () => {
+        clicks += 1;
+    contadorlike.innerHTML = clicks;
+
+    const newUpdate = textPost.innerText
+    const newPostvalue = newUpdate
+    const nuevoPost = {
+        body: newPostvalue,
+        image:`${newPosts.val().image}`,
+        author:`${newPosts.val().author}`,
+        uid:`${newPosts.val().uid}`,
+        key: postskey,
+        likeCount:clicks,
+    };
+    const updatesUser = {};
+    const updatesPost = {};
+
+    updatesPost[`/posts/${newPosts.key}`] = nuevoPost;
+    firebase.database().ref().update(updatesUser);
+    firebase.database().ref().update(updatesPost);
+
+   })
 
     
     allPostsWall.appendChild(contPost);
     contPost.appendChild(image);
     contPost.appendChild(author);
-    // contPost.appendChild(espacaio);
+    contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
     contPost.appendChild(br);
-    // contPost.appendChild(espacaio);
+    contPost.appendChild(espacaio);
+    contPost.appendChild(contadorlike);
     contPost.appendChild(btnLike);
     // btnLike.appendChild(icolike);
+    if(`${newPosts.val().author}` == 'undefined' ){
+        author.innerHTML =  `${newPosts.val().email}`
+        image.setAttribute('src', 'https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png')
+    }
+    else{
+        author.innerHTML = `${newPosts.val().author}`
+           image.setAttribute('src', `${newPosts.val().image}`)
+    }
 
 }
 const showPostsUserProfile = (newPostsUser) => {
@@ -194,24 +231,23 @@ const showPostsUserProfile = (newPostsUser) => {
     contPost.setAttribute('class', "w3-container w3-card w3-white w3-round w3-margin")
 
     const image = document.createElement('img');
-    image.setAttribute('src', `${newPostsUser.val().image}`)
     image.setAttribute('class', "w3-left w3-circle w3-margin-top")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
 
-    // const espacaio = document.createElement('hr');
-    // espacaio.setAttribute('class', "w3-clear")
+    const espacaio = document.createElement('hr');
+    espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
     author.setAttribute('class',"w3-left w3-circle w3-margin-left");
     author.setAttribute('style',"margin-top: 22px");
-    author.innerHTML = `${newPostsUser.val().author}`
     // author.setAttribute('class',  )
     const salto1= document.createElement('br');
     salto1.setAttribute('class', "w3-clear");
 
     const textPost = document.createElement('p');
-    textPost.setAttribute('class', "publish");
+    textPost.setAttribute('class', "w3-left w3-circle w3-margin-right");
+    
     textPost.setAttribute('id', postskey);
     textPost.innerHTML = `${newPostsUser.val().body}`;
     const salto = document.createElement('br');
@@ -292,14 +328,21 @@ const showPostsUserProfile = (newPostsUser) => {
     contPost.appendChild(image);
     contPost.appendChild(author);
     contPost.appendChild(salto1);
-    // contPost.appendChild(espacaio);
+    contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
     contPost.appendChild(salto);
-    // contPost.appendChild(espacaio);
+    contPost.appendChild(espacaio);
     contPost.appendChild(btnEdit);
     btnEdit.appendChild(icoEdit);
     contPost.appendChild(btnDelete);
     btnDelete.appendChild(icoDelete);
-
+    if(`${newPostsUser.val().author}` == 'undefined' ){
+        author.innerHTML =  `${newPostsUser.val().email}`
+        image.setAttribute('src', 'https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png')
+    }
+    else{
+        author.innerHTML = `${newPostsUser.val().author}`
+           image.setAttribute('src', `${newPostsUser.val().image}`)
+    }
 
 }
