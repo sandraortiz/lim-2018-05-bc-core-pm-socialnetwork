@@ -6,13 +6,18 @@
 #userPostProfile{
     display: none;
     }
+
 #profileInformation{
         display: none;
     }
 
+    #profile2 {
+        height: 225px;
+    }
+
 #titlePublicaciones {
     display:none;
-    font-size: 20px;
+    font-size: 17px;
     margin-left:15px;
     font-weight:700;
 }
@@ -47,23 +52,26 @@ textarea {
 }
 
 .post-area {
-    width:90%;
+    width:100%;
     height:70px;
     background-color: rgb(244, 249, 201);
-    border:none;
+   border:none;
+    font-weight: 400;
     
 }
 
 
 #navbar {
     height:75px;
-    background-color: rgb(133, 206, 15);
+    background-color: rgb(178, 201, 31);
     color:white;
 }
 
 .profile {
     margin-top:15px;
 }
+
+
 
 #title-nav {
     font-family: 'Grand Hotel', cursive;
@@ -91,6 +99,11 @@ textarea {
     font-weight: 700;
 }
 
+#selectPublicPrivate {
+background-color: #e6e6e0;
+margin-right:1%;
+}
+
 #btnEcoLike {
     background-color: rgb(200, 216, 49);
 
@@ -109,19 +122,12 @@ textarea {
 }
 
 
-#publicar {
-    margin-top:20px;
-    
-}
-
-
-
-.newsWall {
+.newsProfile {
     margin-left:25%;
     width:66%;
 }
 
-.newsProfile {
+.newsWall {
     
     width:66%;
 }
@@ -139,13 +145,30 @@ textarea {
 
 .title-sobremi, .text-miPerfil, .text-share {
     font-weight: 700;
-    font-size:20px;
+    font-size:17px;
+}
+
+#selectPublicPrivate {
+    width:100px;
+}
+
+.publish {
+    margin-left: 75px;
+    margin-top:60px;
+    height: 20px;
+    
+    
+}
+
+.author {
+    margin-left:75px;
+    margin-top:3%;
 }
 
 .title-posts {
     font-family: 'Quicksand', sans-serif;
     font-weight:700;
-    font-size: 20px;
+    font-size: 17px;
     margin-left: 13px;
 }
 
@@ -167,7 +190,7 @@ textarea {
                 }
 
                 .newsProfile {
-                    
+                    margin-left:0px; 
                     width:100%;
                 }
 

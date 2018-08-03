@@ -17,7 +17,8 @@ window.onload = () => {
             userName.innerHTML = `${user.displayName}`;
             userImage.innerHTML = ` <img src="${user.photoURL}" alt="user" class="profile-photo" />`;
             if (userName.innerHTML == 'null') {
-                userName.innerHTML = `${user.email}`
+                userName.innerHTML = `${user.email}`;
+                userImage.innerHTML = `<i class="fab fa-pagelines" style="font-size:55px;color:green"></i>`;                ;
             }
             writeUserDataFirebase(user.uid, user.displayName, user.email, user.photoURL);
             //  writeNewPost(user.uid ,user.displayName , user.photoURL , post.value);
@@ -41,13 +42,16 @@ buttonProfile.addEventListener('click', () => {
     allPostsWall.style.display = 'none';
     userPostProfile.style.display = 'block';
     profileInformation.style.display = 'block';
-    perfilNoticias.setAttribute("class" , "newsWall");
+    perfilNoticias.setAttribute("class" , "newsProfile");
+    titlePublicaciones.style.display = 'block';
     
 })
 buttonWall.addEventListener('click', () => {
     allPostsWall.style.display = 'block';
     userPostProfile.style.display = 'none';
     profileInformation.style.display = 'none';
+    perfilNoticias.setAttribute("class" , "newsWall");
+    titlePublicaciones.style.display = 'none';
 })
 buttonLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
@@ -68,7 +72,7 @@ buttonPublishApost.addEventListener('click', () => {
         }
 
         else {
-            alert('por favor escoga una opcion')
+            writeNewPostFirebase();
         }
     }
 })
@@ -123,7 +127,6 @@ const callFirebaseAllPosts = (uid) => {
     });
 
 }
-
 const showallPostsWall = (newPosts) => {
 
     const postskey = newPosts.key
@@ -132,40 +135,47 @@ const showallPostsWall = (newPosts) => {
 
     const image = document.createElement('img');
     image.setAttribute('src', `${newPosts.val().image}`)
-    image.setAttribute('class', "w3-left w3-circle w3-margin-right")
+    image.setAttribute('class', "w3-left w3-circle w3-margin-top")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
 
-    const espacaio = document.createElement('hr');
-    espacaio.setAttribute('class', "w3-clear")
+    // const espacaio = document.createElement('hr');
+    // espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
     author.innerHTML = `${newPosts.val().author}`
+    author.setAttribute('style',"margin-top: 22px,");
+    author.setAttribute('class',"author");
     // author.setAttribute('class',  )
 
     const textPost = document.createElement('p');
-    textPost.setAttribute('class', "w3-left w3-circle w3-margin-right");
+    textPost.setAttribute('class', 'publish');
     textPost.setAttribute('id', postskey);
     textPost.innerHTML = `${newPosts.val().body}`;
 
 /* <button id="${newPostsUser.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom "><i class="fa fa-thumbs-up"></i> EcoLike</button>  */
+    const br = document.createElement('br');
     const btnLike = document.createElement('input');
-    btnLike.setAttribute('value', 'Like');
+    btnLike.setAttribute('value', 'Like ♥');
     btnLike.setAttribute('type', 'button');
     btnLike.setAttribute('id', postskey);
-    btnLike.setAttribute('class' , "w3-button w3-theme-d1 w3-margin-bottom ")
-    const icolike = document.createElement('i')
+    // btnLike.setAttribute('style', "background-color: orange;");
+    btnLike.setAttribute('class' , "w3-pink w3-button w3-margin-bottom ");
+    // const icolike = document.createElement('i');
     
-    icolike.setAttribute('class', "fa fa-thumbs-up")
-    btnLike.appendChild(icolike);
+    // icolike.setAttribute('class', 'fas fa-thumbs-up');
+    
 
+    
     allPostsWall.appendChild(contPost);
     contPost.appendChild(image);
     contPost.appendChild(author);
-    contPost.appendChild(espacaio);
+    // contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
-    contPost.appendChild(espacaio);
+    contPost.appendChild(br);
+    // contPost.appendChild(espacaio);
     contPost.appendChild(btnLike);
+    // btnLike.appendChild(icolike);
 
 }
 const showPostsUserProfile = (newPostsUser) => {
@@ -176,38 +186,46 @@ const showPostsUserProfile = (newPostsUser) => {
 
     const image = document.createElement('img');
     image.setAttribute('src', `${newPostsUser.val().image}`)
-    image.setAttribute('class', "w3-left w3-circle w3-margin-right")
+    image.setAttribute('class', "w3-left w3-circle w3-margin-top")
     image.setAttribute('style', "width:60px")
     image.setAttribute('alt', "Avatar")
 
-    const espacaio = document.createElement('hr');
-    espacaio.setAttribute('class', "w3-clear")
+    // const espacaio = document.createElement('hr');
+    // espacaio.setAttribute('class', "w3-clear")
 
     const author = document.createElement('h4');
+    author.setAttribute('class',"w3-left w3-circle w3-margin-left");
+    author.setAttribute('style',"margin-top: 22px");
     author.innerHTML = `${newPostsUser.val().author}`
     // author.setAttribute('class',  )
+    const salto1= document.createElement('br');
+    salto1.setAttribute('class', "w3-clear");
 
     const textPost = document.createElement('p');
-    textPost.setAttribute('class', "w3-left w3-circle w3-margin-right");
+    textPost.setAttribute('class', "publish");
     textPost.setAttribute('id', postskey);
     textPost.innerHTML = `${newPostsUser.val().body}`;
-
-    const btnEdit = document.createElement('input');
+    const salto = document.createElement('br');
+    salto.setAttribute('class', "w3-clear");  
+    
+    const btnEdit = document.createElement('button');
     btnEdit.setAttribute('value', 'Editar');
-    btnEdit.setAttribute('type', 'button');
+    btnEdit.setAttribute('title', 'Editar');
     btnEdit.setAttribute('id', postskey);
-    btnEdit.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
+    btnEdit.setAttribute('class', "w3-pink w3-button w3-margin-bottom")
+    btnEdit.setAttribute('style','margin: 10px')
+    const icoEdit= document.createElement('i');
+    icoEdit.setAttribute('class','fas fa-pen');
 
-    const btnDelete = document.createElement('input');
-    btnDelete.setAttribute('value', 'delete');
-    btnDelete.setAttribute('type', 'button');
+    const btnDelete = document.createElement('button');
+    btnDelete.setAttribute('value', 'Borrar');
+    btnDelete.setAttribute('title', 'Eliminar');
     btnDelete.setAttribute('id', postskey);
-    btnDelete.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
-
-    const btnLike = document.createElement('input');
-    btnLike.setAttribute('value', 'Like');
-    btnLike.setAttribute('type', 'button');
-    btnLike.setAttribute('id', 'likes');
+    btnDelete.setAttribute('class', "w3-pink w3-button w3-margin-bottom");
+    btnDelete.setAttribute('style','margin: 10px');
+    const icoDelete= document.createElement('i');
+    icoDelete.setAttribute('class','fas fa-trash');
+    
 
     btnDelete.addEventListener('click', (evt) => {
         if (newPostsUser.key === evt.target.id) {
@@ -229,9 +247,11 @@ const showPostsUserProfile = (newPostsUser) => {
         textPost.contentEditable = "true";
         btnEdit.style.display = 'none';
         const btnpublish = document.createElement('input');
-        btnpublish.setAttribute('value', 'publicar');
+        btnpublish.setAttribute('value', 'Publicar');
         btnpublish.setAttribute('type', 'button');
-        btnpublish.setAttribute('id', postskey)
+        btnpublish.setAttribute('class',"w3-pink w3-button w3-margin-bottom");
+        btnpublish.setAttribute('id', postskey);
+        btnpublish.setAttribute('style','margin: 10px');
         btnpublish.addEventListener('click', (evt) => {
                if (postskey === evt.target.id) {
                 const currentUser = firebase.auth().currentUser;
@@ -262,11 +282,15 @@ const showPostsUserProfile = (newPostsUser) => {
     userPostProfile.appendChild(contPost);
     contPost.appendChild(image);
     contPost.appendChild(author);
-    contPost.appendChild(espacaio);
+    contPost.appendChild(salto1);
+    // contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
-    contPost.appendChild(espacaio);
+    contPost.appendChild(salto);
+    // contPost.appendChild(espacaio);
     contPost.appendChild(btnEdit);
+    btnEdit.appendChild(icoEdit);
     contPost.appendChild(btnDelete);
+    btnDelete.appendChild(icoDelete);
 
 
 }
