@@ -4,12 +4,12 @@
   "main": "src/index.html",
   "license": "MIT",
   "scripts": {
-    "htmlhint": "htmlhint src/*.html test/*.html",
-    "eslint": "eslint --ext .js src/ test/",
+      "eslint": "mocha test src/test/",
     "pretest": "npm run eslint && npm run htmlhint",
     "test-browser": "opener ./test/index.html",
     "test-node": "nyc mocha ./test/headless.js && nyc report --reporter=html",
     "test": "npm run test-node && npm run test-browser"
+   
   },
   "dependencies": {
     "chai": "^4.1.2",

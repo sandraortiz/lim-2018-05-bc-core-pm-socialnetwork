@@ -29,6 +29,7 @@ window.onload = () => {
         console.log("User > " + JSON.stringify(user));
     });
 }
+//testear
 const writeUserDataFirebase = (userId, name, email, imageUrl) => {
     firebase.database().ref('users/' + userId).set({
         username: name,
@@ -36,6 +37,7 @@ const writeUserDataFirebase = (userId, name, email, imageUrl) => {
         profile_picture: imageUrl
     });
 }
+
 buttonProfile.addEventListener('click', () => {
     allPostsWall.style.display = 'none';
     userPostProfile.style.display = 'block';
@@ -71,7 +73,7 @@ buttonPublishApost.addEventListener('click', () => {
 })
 
 
-
+//testear
 const writeNewPostFirebase = () => {
     const currentUser = firebase.auth().currentUser;
     const messageAreaText = postContent.value;
@@ -90,7 +92,7 @@ const writeNewPostFirebase = () => {
     return firebase.database().ref().update(updates);
 
 }
-
+//testear
 const writePrivateUserPosts = () => {
     const currentUser = firebase.auth().currentUser;
     const messageAreaText = postContent.value;
@@ -107,7 +109,7 @@ const writePrivateUserPosts = () => {
     updates['/user-posts/' + currentUser.uid + '/' + newPostKey] = postData;
     return firebase.database().ref().update(updates);
 }
-
+//testear
 const callFirebaseAllPosts = (uid) => {
     const userPost = firebase.database().ref('user-posts').child(uid);
     userPost.on("child_added", newPostsUser => {
