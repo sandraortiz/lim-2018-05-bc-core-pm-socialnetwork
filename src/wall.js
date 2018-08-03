@@ -8,7 +8,10 @@ const buttonPublishApost = document.getElementById('publishApost');
 const postContent = document.getElementById('postContent');
 const selectPublicPrivate = document.getElementById('selectPublicPrivate');
 // const bd = document.getElementById('bd');
-
+function reload_page() {
+    window.location.reload();
+  };
+  
 window.onload = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -46,7 +49,8 @@ buttonProfile.addEventListener('click', () => {
 buttonWall.addEventListener('click', () => {
     allPostsWall.style.display = 'block';
     userPostProfile.style.display = 'none';
-    profileInformation.style.display = 'none';
+    profileInformation.style.display = 'none';    
+      reload_page();
 })
 buttonLogout.addEventListener('click', () => {
     firebase.auth().signOut().then(function () {
@@ -147,25 +151,34 @@ const showallPostsWall = (newPosts) => {
     textPost.setAttribute('id', postskey);
     textPost.innerHTML = `${newPosts.val().body}`;
 
-/* <button id="${newPostsUser.val().key}" type="button" class="w3-button w3-theme-d1 w3-margin-bottom "><i class="fa fa-thumbs-up"></i> EcoLike</button>  */
+    /* <button id="${newPostsUser.val().key}" 
+    type="button" class="w3-button w3-theme-d1 w3-margin-bottom ">
+    <i class="fa fa-thumbs-up"></i> EcoLike</button>  */
     const btnLike = document.createElement('input');
     btnLike.setAttribute('value', 'Like');
     btnLike.setAttribute('type', 'button');
     btnLike.setAttribute('id', postskey);
-    btnLike.setAttribute('class' , "w3-button w3-theme-d1 w3-margin-bottom ")
-    const icolike = document.createElement('i')
+    btnLike.setAttribute('class', "w3-button w3-theme-d1 w3-margin-bottom")
+    btnLike.addEventListener('click', () => {
     
-    icolike.setAttribute('class', "fa fa-thumbs-up")
-    btnLike.appendChild(icolike);
+    })
+    // const icolike = document.createElement('i')
+    // icolike.setAttribute('class' , "fa fa-thumbs-up")
+
+
+
+    // <button type="button" onClick="onClick()">
+    //<i class="fa fa-thumbs-up">Clicks:<a id="clicks">0</i></button>
 
     allPostsWall.appendChild(contPost);
+
     contPost.appendChild(image);
     contPost.appendChild(author);
     contPost.appendChild(espacaio);
     contPost.appendChild(textPost);
     contPost.appendChild(espacaio);
     contPost.appendChild(btnLike);
-
+    // btnLike.appendChild(icolike);
 }
 const showPostsUserProfile = (newPostsUser) => {
     const postskey = newPostsUser.key
@@ -221,7 +234,7 @@ const showPostsUserProfile = (newPostsUser) => {
                 // btnLike.remove();
             }
         }
-
+   
     })
 
     btnEdit.addEventListener('click', (evt) => {
@@ -232,7 +245,7 @@ const showPostsUserProfile = (newPostsUser) => {
         btnpublish.setAttribute('type', 'button');
         btnpublish.setAttribute('id', postskey)
         btnpublish.addEventListener('click', (evt) => {
-               if (postskey === evt.target.id) {
+            if (postskey === evt.target.id) {
                 const currentUser = firebase.auth().currentUser;
                 const newUpdate = textPost.innerText
                 const newPostvalue = newUpdate
