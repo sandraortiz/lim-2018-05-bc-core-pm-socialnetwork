@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
 
+
 <body class="w3-theme-l5">
   <!-- Navbar -->
   <div class="w3-top">
@@ -64,9 +65,9 @@
     <div class="w3-row">
       <!-- PERFIL -->
       <div class="profile w3-col m3" id="profileInformation">
-        <div class="w3-card w3-round w3-white">
+        <div id="profile2" class="w3-card w3-round w3-white">
           <div class="w3-container">
-            <p class="title-posts w3-center"> Mi Perfil </p>
+            <p class="title-posts w3-center"> MI PERFIL </p>
             <h4 class="text-miPerfil w3-center" id="userName"> </h4>
             <p id="userImage" class="w3-center"></p>
             <br>
@@ -80,35 +81,35 @@
         <div id="content-publicar" class="w3-container w3-card w3-white w3-round w3-margin" >
               <div class="w3-container">
                 <p class="text-share">  ¿Qué quieres compartir hoy? 
+                  <br>
+                  <br>
                <textarea class="post-area" name="publicacion" id="postContent"></textarea>
-               <select class="w3-select" name="option" id="selectPublicPrivate">
-                <option value="orderByoption">Choose your option</option>
-                <option value="publico">publico</option>
-                <option value="privado">privado</option>
+              <p> <button class="w3-button w3-black w3-right" id="publishApost"  value="Publicar">Publicar <i class="fas fa-share"></i>
+              </button>
+                <select class=" w3-button w3-select w3-right" name="option" id="selectPublicPrivate">
+                <option value="publico">Público</option>
+                <option value="privado">Privado</option>
               </select>
-                  <button class="w3-button" id="publishApost"  value="Publicar">Publicar <i class="fas fa-share"></i>
-
-                  </button>
                 </p>
+                <br>
+                <br>
+                <br>
               </div>
         </div>
       </div>
     </div>
       <div class="w3-row">
          <!-- NOTICIAS -->
-        <div id="noticias" class="w3-container w3-card w3-round w3-margin">
-          <br>
-            <p id="titlePublicaciones"> Mis publicaciones </p>
+        <div id="noticias">
+          <div id="noticiascontent" class="w3-container w3-card w3-round w3-margin">
+            <p id="titlePublicaciones"> Mis Publicaciones </p>
            <div id="allPostsWall" class="hiden">
-          <p class="title-posts"> <i class="fas fa-globe-americas"></i>
-          NOTICIAS </p>
+          <p class="title-posts"> <i class="fas fa-globe-americas"></i> NOTICIAS </p>
           </div>
-          <!-- <div id="myuserpost" class="hiden">
-            <p id="aqui"></p>
-          </div> -->
-          <div id="userPostProfile" class="hiden">
+          <div id="userPostProfile" class="hiden">                                    
           </div>
         </div>
+      </div>
     </div>
 </div>
 
