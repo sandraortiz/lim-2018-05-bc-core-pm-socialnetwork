@@ -34,11 +34,14 @@
     border-bottom:black;
     background-color: none;
     width:60%;
-    height:30px;
+    height:35px;
     border-radius:200px;
+    font-family: 'Oswald', sans-serif; 
+}
+
+.text-1, .text-2 {
+    font-size: 18px;
     font-family: 'Oswald', sans-serif;
-   
-    
 }
 
 .buttonRegister{
@@ -61,7 +64,7 @@ margin-right:0px;
 }
 
 #col-2-background {
-    background-color: rgb(259,259,259, 0.89);
+    background-color: rgb(259,259,259, 0.79);
 }
 
 #col-1{
@@ -141,6 +144,7 @@ margin-right:0px;
 }
     .text-slogan {
       display:none;
+      
     }
 
     #col-2 {
@@ -158,7 +162,7 @@ margin-right:0px;
 
     .title-nav {
     text-align: center;
-    margin-top:-10px;
+    margin-top:-20px;
  
 }       
 #col-2-background {
@@ -167,7 +171,7 @@ margin-right:0px;
 
 .title-form{
     font-family: 'Oswald', cursive;
-    font-size:30px;
+    font-size:20px;
     text-align: center;
 } 
 }
@@ -183,6 +187,9 @@ margin-right:0px;
 }
 }
             
+<<<<<<< HEAD
 
 
     
+=======
+>>>>>>> cce49bd922facac2c1f3117572ca3dd2c51bd958
