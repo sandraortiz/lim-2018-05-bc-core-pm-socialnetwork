@@ -124,8 +124,9 @@ margin-right:0px;
     text-align:center;
 }
 
-#mensajeErrorPassword {
+#mensajeErrorPassword, #mensaje-error, #mensaje-error-login {
     color:red;
+    font-size: 14px;
 }
 
 @media only screen and (max-width: 920px) {
