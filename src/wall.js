@@ -257,24 +257,23 @@ const showPostsUserProfile = (newPostsUser) => {
   // const salto = document.createElement('br');
   // salto.setAttribute('class', "w3-clear");
 
-  const btnEdit = document.createElement('button');
+  const btnEdit = document.createElement('input');
+  btnEdit.setAttribute('type','button');
   btnEdit.setAttribute('value', 'Editar');
   btnEdit.setAttribute('title', 'Editar');
   btnEdit.setAttribute('id', postskey);
-  btnEdit.setAttribute('class', "w3-blue w3-button w3-margin-bottom")
-  btnEdit.setAttribute('style', 'margin: 10px')
-  const icoEdit = document.createElement('i');
-  icoEdit.setAttribute('class', 'fas fa-pen');
+  btnEdit.setAttribute('class', "w3-blue w3-button w3-margin-bottom w3-small");
+  btnEdit.setAttribute('style', 'margin: 10px');
 
-  const btnDelete = document.createElement('button');
+
+  const btnDelete = document.createElement('input');
+  btnDelete.setAttribute('type','button');
   btnDelete.setAttribute('value', 'Borrar');
   btnDelete.setAttribute('title', 'Eliminar');
   btnDelete.setAttribute('id', postskey);
-  btnDelete.setAttribute('class', "w3-pink w3-button w3-margin-bottom");
+  btnDelete.setAttribute('class', "w3-pink w3-button w3-margin-bottom w3-small");
   btnDelete.setAttribute('style', 'margin: 10px');
-  const icoDelete = document.createElement('i');
-  icoDelete.setAttribute('class', 'fas fa-trash');
-
+  
 
   btnDelete.addEventListener('click', (evt) => {
     if (newPostsUser.key === evt.target.id) {
@@ -298,7 +297,7 @@ const showPostsUserProfile = (newPostsUser) => {
     const btnpublish = document.createElement('input');
     btnpublish.setAttribute('value', 'Publicar');
     btnpublish.setAttribute('type', 'button');
-    btnpublish.setAttribute('class', "w3-pink w3-button w3-margin-bottom");
+    btnpublish.setAttribute('class', "w3-pink w3-button w3-margin-bottom w3-small");
     btnpublish.setAttribute('id', postskey);
     btnpublish.setAttribute('style', 'margin: 10px');
     btnpublish.addEventListener('click', (evt) => {
@@ -337,9 +336,8 @@ const showPostsUserProfile = (newPostsUser) => {
   // contPost.appendChild(salto);
   contPost.appendChild(espacaio);
   contPost.appendChild(btnEdit);
-  btnEdit.appendChild(icoEdit);
   contPost.appendChild(btnDelete);
-  btnDelete.appendChild(icoDelete);
+
   if (`${newPostsUser.val().author}` == 'undefined') {
     author.innerHTML = `${newPostsUser.val().email}`
     image.setAttribute('src', 'https://cdn.icon-icons.com/icons2/1540/PNG/128/cinterior150_107120.png')
