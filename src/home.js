@@ -19,6 +19,7 @@ const errorMessagePassword1 = document.getElementById("mensajeErrorPassword");
 // login 
 const userEmailLogin = document.querySelector(".userEmailLogin");
 const userPasswordLogin = document.querySelector(".userPasswordLogin");
+const messageErrorLogin = document.getElementById("mensaje-error-login")
 const buttonfacebookLogin = document.querySelector(".buttonFacebookLogin");
 const buttongoogleLogin = document.querySelector(".buttonGoogleLogin");
 const buttonLogin = document.querySelector('.buttonLogin');
@@ -40,6 +41,7 @@ buttonLogin.addEventListener('click', () => {
         .catch((error) => {
             console.log("error de firebase > Codigo > " + error.code);
             console.log("error de firebase > Mensaje >" + error.message)
+            messageErrorLogin.innerHTML='*Cuenta y/o contraseña no validos'
         });
 })
 
@@ -95,7 +97,7 @@ buttonRegister.addEventListener('click', () => {
                 });
         }
         else {
-            errorMessagePassword.innerText = "Las contraseñas no coinciden";
+            errorMessagePassword.innerText = "*Las contraseñas no coinciden";
         }
     }
     else {
