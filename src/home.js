@@ -14,6 +14,7 @@ const userEmail = document.querySelector(".userEmail");
 const userPassword = document.querySelector(".userPassword");
 const userPasswordVerification = document.querySelector(".userPasswordVerification");
 const buttonRegister = document.querySelector(".buttonRegister");
+const errorMessageRegister = document.getElementById("mensajeErrorRegister");
 const errorMessagePassword = document.getElementById("mensaje-error");
 const errorMessagePassword1 = document.getElementById("mensajeErrorPassword");
 // login 
@@ -93,7 +94,8 @@ buttonRegister.addEventListener('click', () => {
                 })
                 .catch((error) => {
                     console.log("error de firebase > Codigo > " + error.code);
-                    console.log("error de firebase > Mensaje >" + error.message)
+                    console.log("error de firebase > Mensaje >" + error.message);
+                    errorMessageRegister.innerHTML='*Correo no valido'
                 });
         }
         else {

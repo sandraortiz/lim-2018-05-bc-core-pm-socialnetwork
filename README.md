@@ -15,9 +15,7 @@ Entra aquí: (https://crisescobar.github.io/lim-2018-05-bc-core-pm-socialnetwork
             (https://lizethsuk.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/home.html)
 
 Versión desktop: ![DESKTOP](https://crisescobar.files.wordpress.com/2018/08/whatsapp-image-2018-08-03-at-13-02-211.jpeg)
-
-Versión mobile: ![MOBILE](https://crisescobar.files.wordpress.com/2018/08/38457971_1784298251617613_816387619846881280_n.png)
-
+Versión mobile: ![M](https://crisescobar.files.wordpress.com/2018/08/38457971_1784298251617613_816387619846881280_n.png)
 
 ### Elementos básicos de una red social.
 Como primer paso, hicimos una breve investigación para conocer las principales características de las redes sociales y tomarlas en cuenta en la elaboración del proyecto. Ante ello identificados los siguientes elementos principales de una red social: 
@@ -161,7 +159,18 @@ Prototipo de alta fidelidad mobile:
 (https://marvelapp.com/e0i7h74)
 
 
-### Conclusiones de testing con prototipo de alta fidelidad
+Conclusiones prototipo de alta fidelidad: 
+.En la primera version del prototipo un usuario concluyo que era página de autoayuda debido a la imagen de fondo que tenía.
+
+.En la segunda versión del prototipo, los usuarios tenian una impresion de estar en una pagina dedicada a la venta de plantas. Es por ello que decidimos cambiar la imagen y poner un slogan representativo.
+
+. En la última versión del prototipo al momento de dar like, los usuarios clickeaban el número de like en vez del botón, por lo que se cambió la posición de los botones.
+
+. El usuario reconocio facilmente los botones de editar y borrar que eran representados por los íconos.
+
+
+
+### Conclusiones de testing con interfaz.
 Se realizó el testing del prototipo final con 3 usuarios
 
 ![testimagen](https://crisescobar.files.wordpress.com/2018/07/whatsapp-image-2018-07-31-at-14-49-21-e1533066719608.jpeg)

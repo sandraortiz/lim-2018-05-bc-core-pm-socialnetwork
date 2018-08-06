@@ -124,7 +124,7 @@ margin-right:0px;
     text-align:center;
 }
 
-#mensajeErrorPassword, #mensaje-error, #mensaje-error-login {
+#mensajeErrorPassword, #mensaje-error, #mensaje-error-login, #mensajeErrorRegister {
     color:red;
     font-size: 14px;
 }
