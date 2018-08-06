@@ -10,7 +10,7 @@ Eco Friends es una red social pensada para esa gran mayoría de personas que tie
 ¡Podrás compartir tus ideas con otras personas alrededor del mundo!
 Somos fervientes creyentes que el cambiar del mundo empieza por nosotros mismos, entonces ¿qué esperas? te invitamos a unirte a esta comunidad Eco Friends para que puedas ser parte del cambio. 
 
-Entra aquí: ()
+Entra aquí: (https://crisescobar.github.io/lim-2018-05-bc-core-pm-socialnetwork/src/home.html)
 
 Versión desktop: ![DESKTOP](https://crisescobar.files.wordpress.com/2018/08/whatsapp-image-2018-08-03-at-13-02-211.jpeg)
 
