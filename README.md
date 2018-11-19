@@ -155,8 +155,7 @@ Diseño final:
 Prototipo de alta fidelidad desktop:
 (https://marvelapp.com/98ab5h4)
 
-Prototipo de alta fidelidad mobile:
-(https://marvelapp.com/e0i7h74)
+
 
 
 Conclusiones prototipo de alta fidelidad: 
